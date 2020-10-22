@@ -134,7 +134,8 @@ extension ConsoleInterface {
 	}
 
 	func inputCommand() -> UserCommands? {
-		if let userInput = UserCommands(rawValue: readLine()!.lowercased()) {
+		guard let rawInput = readLine() else { return nil }
+		if let userInput = UserCommands(rawValue: rawInput.lowercased()) {
 			return userInput
 		}
 		return nil
