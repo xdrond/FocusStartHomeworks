@@ -6,7 +6,5 @@
 //  Copyright © 2020 romanromanov. All rights reserved.
 //
 
-import Foundation
-
 ConsoleInterface().runLoop()
 

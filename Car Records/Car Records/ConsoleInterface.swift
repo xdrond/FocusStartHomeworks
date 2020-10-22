@@ -6,8 +6,6 @@
 //  Copyright © 2020 romanromanov. All rights reserved.
 //
 
-import Foundation
-
 class ConsoleInterface {
 	private lazy var modelController = ModelController()
 

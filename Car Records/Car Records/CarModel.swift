@@ -6,8 +6,6 @@
 //  Copyright © 2020 romanromanov. All rights reserved.
 //
 
-import Foundation
-
 struct CarModel {
 	let manufacturer: String
 	let model: String
