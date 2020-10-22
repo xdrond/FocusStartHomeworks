@@ -31,15 +31,15 @@ class ModelController {
 		print("Производитель: \(car.manufacturer)")
 		print("Модель: \(car.model)")
 		print("Тип кузова: \(car.body.rawValue)")
-		car.yearOfIssue == nil
-			? print("Год производства: -")
-			: print("Год производства: \(car.yearOfIssue!)")
-		if let carNumber = car.carNumber {
-			print("Гос. номер: \(carNumber)")
+		if let yearOfIssue = car.yearOfIssue {
+			print("Год производства: \(yearOfIssue)")
+		} else {
+			print("Год производства: -")
 		}
+		if let carNumber = car.carNumber { print("Гос. номер: \(carNumber)") }
 	}
 
-	func getAllBodytypes() -> [String] {
+	func getAllBodyTypes() -> [String] {
 		return CarModel.Body.allCases.map{ $0.rawValue }
 	}
 	

@@ -40,35 +40,53 @@ class ConsoleInterface {
 		if list.isEmpty {
 			print("Нет добавленных машин. Воспользуйтесь 'add', чтобы добавить запись.")
 		} else {
+			print("Список доступных машин: ")
 			list.forEach{ modelController.printCarDescription(car: $0) }
 		}
 	}
 
 	func enterCarProperties() {
-		// readLine()! - предполагается, что не произойдёт ситуации с EOF.
+		// Если необходимо, можно заменить выброс в главное меню
+		// валидацией на каждом свойстве с бесконечными попытками.
+		// Но тогда уже лучше будет вынести функционал считывания в отдельный метод,
+		// потому что даже минимальная проверка на EOF порождает большое количество
+		// повторяемого кода.
 		print("Введите производителя:")
-		let manufacturer = readLine()!
+		guard let manufacturer = readLine() else {
+			print("Слишком длинное название производителя.")
+			return
+		}
 		print("Введите модель:")
-		let model = readLine()!
+		guard let model = readLine() else {
+			print("Слишком длинное название модели.")
+			return
+		}
 		print("Выберите тип кузова.")
-		let body = selectBody(list: modelController.getAllBodytypes())
+		let body = selectBody(list: modelController.getAllBodyTypes())
 		print("Год выпуска (нажимите Enter, чтобы пропустить):")
-		let rawYearOfIssue = readLine()!
+		guard let rawYearOfIssue = readLine() else {
+			print("Вероятно, эта машина выйдет ещё очень нескоро.")
+			return
+		}
 		let yearOfIssue = rawYearOfIssue.isEmpty ? nil : Int(rawYearOfIssue)
 		print("Гос. номер:")
-		var carNumber: String? = readLine()!
-		carNumber = carNumber!.isEmpty ? nil : carNumber
-		print("Новый автомобиль внесён в список: ")
+		guard let rawСarNumber = readLine() else {
+			print("Вероятно, эта машина выйдет ещё очень нескоро.")
+			return
+		}
+		let carNumber = rawСarNumber.isEmpty ? nil : rawСarNumber
+
 		let newCar = modelController.addCar(manufacturer: manufacturer,
 											model: model,
 											body: body,
 											yearOfIssue: yearOfIssue,
 											carNumber: carNumber)
+		print("Новый автомобиль внесён в список: ")
 		modelController.printCarDescription(car: newCar)
 	}
 
 	func selectBody(list: [String]) -> CarModel.Body {
-		print("Доступные типы кузова для фильтрации:")
+		print("Доступные типы кузова:")
 		list.enumerated().forEach{ (index,body) in print("\t\(index) - \(body)") }
 
 		repeat {
