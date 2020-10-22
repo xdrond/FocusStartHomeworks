@@ -23,8 +23,8 @@ class ConsoleInterface {
 				case .show:
 					showList(list: modelController.getAll())
 				case .filter:
-					let body = selectBody(list: modelController.getAllBodytypes())
-						showList(list: modelController.filterByBody(bodyType: body))
+					let body = selectBody(list: modelController.getAllBodyTypes())
+					showList(list: modelController.filterByBody(bodyType: body))
 				case .exit:
 					// Точка выхода.
 					print("Программа завершена.")
@@ -84,7 +84,6 @@ class ConsoleInterface {
 			}
 		} while true
 	}
-
 }
 
 // MARK:- Тексты пользовательского интерфейса.
