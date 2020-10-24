@@ -106,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "Car Records" */;
+			buildConfigurationList = E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "Car_Records" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -276,7 +276,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "Car Records" */ = {
+		E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "Car_Records" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2846A542539948F00D9DD12 /* Debug */,
