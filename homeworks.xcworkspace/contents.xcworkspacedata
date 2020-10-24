@@ -5,6 +5,6 @@
       location = "group:ThreadSafeArray/ThreadSafeArray.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/xdrond/Documents/Swift edu/FocusStartHomeworks/Car Records/Car_Records.xcodeproj">
+      location = "group:/Users/xdrond/Documents/Swift edu/FocusStartHomeworks/Car Records/CarRecords.xcodeproj">
    </FileRef>
 </Workspace>
