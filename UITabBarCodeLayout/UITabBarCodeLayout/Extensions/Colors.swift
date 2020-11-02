@@ -11,6 +11,7 @@ import UIKit
 enum AssetsColor: String {
 	case backgroundColor
 	case fontColor
+	case spinnerColor
 }
 
 extension UIColor {

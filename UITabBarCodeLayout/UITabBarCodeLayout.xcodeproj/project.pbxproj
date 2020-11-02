@@ -18,6 +18,7 @@
 		E258D461254EC62D004D243D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258D460254EC62D004D243D /* Images.swift */; };
 		E258D463254EC8C2004D243D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258D462254EC8C2004D243D /* Colors.swift */; };
 		E258D46B254EFA1E004D243D /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E258D46A254EFA1E004D243D /* Icons.xcassets */; };
+		E258D46D254FE4CD004D243D /* TraitCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258D46C254FE4CD004D243D /* TraitCollections.swift */; };
 		E2FB1CAE254C19510026E027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB1CAD254C19510026E027 /* AppDelegate.swift */; };
 		E2FB1CB8254C19510026E027 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FB1CB6254C19510026E027 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		E258D460254EC62D004D243D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		E258D462254EC8C2004D243D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E258D46A254EFA1E004D243D /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = UITabBarCodeLayout/Resources/Icons.xcassets; sourceTree = SOURCE_ROOT; };
+		E258D46C254FE4CD004D243D /* TraitCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitCollections.swift; sourceTree = "<group>"; };
 		E2FB1CAA254C19510026E027 /* UITabBarCodeLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITabBarCodeLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FB1CAD254C19510026E027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2FB1CB7254C19510026E027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				E2265DC5254C24220071FE51 /* FirstView.swift */,
 				E2265DC7254C24480071FE51 /* SecondView.swift */,
 				E2265DC9254C245D0071FE51 /* ThirdView.swift */,
+				E2FFEF3E2550295400F475DC /* Enums */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +121,14 @@
 				E2265DC2254C1DAB0071FE51 /* Resources */,
 			);
 			path = UITabBarCodeLayout;
+			sourceTree = "<group>";
+		};
+		E2FFEF3E2550295400F475DC /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E258D46C254FE4CD004D243D /* TraitCollections.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 			files = (
 				E258D455254EB21E004D243D /* SecondViewController.swift in Sources */,
 				E258D463254EC8C2004D243D /* Colors.swift in Sources */,
+				E258D46D254FE4CD004D243D /* TraitCollections.swift in Sources */,
 				E258D453254EB200004D243D /* FirstViewController.swift in Sources */,
 				E2265DCA254C245D0071FE51 /* ThirdView.swift in Sources */,
 				E258D457254EB230004D243D /* ThirdViewController.swift in Sources */,
@@ -347,7 +359,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.xdrondrr.UITabBarCodeLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -364,7 +376,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.xdrondrr.UITabBarCodeLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -378,7 +390,7 @@
 				E2FB1CBB254C19510026E027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		E2FB1CBC254C19510026E027 /* Build configuration list for PBXNativeTarget "UITabBarCodeLayout" */ = {
 			isa = XCConfigurationList;
@@ -387,7 +399,7 @@
 				E2FB1CBE254C19510026E027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
