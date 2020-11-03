@@ -36,6 +36,7 @@
 		E258D462254EC8C2004D243D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E258D46A254EFA1E004D243D /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = UITabBarCodeLayout/Resources/Icons.xcassets; sourceTree = SOURCE_ROOT; };
 		E258D46C254FE4CD004D243D /* TraitCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraitCollections.swift; sourceTree = "<group>"; };
+		E2BBD7BF255164660093536C /* Task_3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Task_3.pdf; sourceTree = "<group>"; };
 		E2FB1CAA254C19510026E027 /* UITabBarCodeLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITabBarCodeLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FB1CAD254C19510026E027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2FB1CB7254C19510026E027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		E2FB1CA1254C19510026E027 = {
 			isa = PBXGroup;
 			children = (
+				E2BBD7BF255164660093536C /* Task_3.pdf */,
 				E2FB1CAC254C19510026E027 /* UITabBarCodeLayout */,
 				E2FB1CAB254C19510026E027 /* Products */,
 			);
