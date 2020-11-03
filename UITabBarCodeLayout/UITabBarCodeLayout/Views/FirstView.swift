@@ -22,7 +22,7 @@ final class FirstView: UIView {
 	private var image = UIImageView()
 	private var spinner = UIActivityIndicatorView()
 
-	private var wChRConstraints: [NSLayoutConstraint] = []
+	private var compactRegularConstraints: [NSLayoutConstraint] = []
 
 	// MARK: - Initializers
 	override init(frame: CGRect) {
@@ -130,7 +130,7 @@ private extension FirstView {
 // MARK: - Private Methods
 private extension FirstView {
 
-		// MARK: - Layout
+	// MARK: - Layout
 	enum LayoutConstants: CGFloat {
 		case thirdLabelWidth = 280
 
@@ -147,18 +147,18 @@ private extension FirstView {
 	func setupViewsLayout() {
 
 		switch SizeClass.current {
-		case .wChR:
-			wChRSetupLayout()
+		case .CompactRegular:
+			CompactRegularSetupLayout()
 		default:
-			wChRSetupLayout()
+			CompactRegularSetupLayout()
 			print("No constraints are configured for this SizeClass!")
 		}
 
 		disableTranslatesAutoresizingMaskIntoConstraints()
-		NSLayoutConstraint.activate(wChRConstraints)
+		NSLayoutConstraint.activate(self.compactRegularConstraints)
 	}
 
-	func wChRSetupLayout() {
+	func CompactRegularSetupLayout() {
 		setupStackViewLayout()
 
 		setupFirstLabelLayout()
@@ -196,7 +196,7 @@ private extension FirstView {
 			self.stackView.bottomAnchor.constraint(equalTo: self.image.topAnchor,
 												   constant: LayoutConstants.stackToImageSpacing.rawValue)
 		]
-		wChRConstraints.append(contentsOf: set)
+		self.compactRegularConstraints.append(contentsOf: set)
 
 		self.addSubview(self.stackView)
 	}
@@ -206,7 +206,7 @@ private extension FirstView {
 	func setupSecondLabelLayout() {}
 
 	func setupThirdLabelLayout() {
-		wChRConstraints.append(self.thirdLabel.widthAnchor.constraint(
+		self.compactRegularConstraints.append(self.thirdLabel.widthAnchor.constraint(
 			equalToConstant: LayoutConstants.thirdLabelWidth.rawValue))
 	}
 
@@ -215,7 +215,7 @@ private extension FirstView {
 			self.roundButton.heightAnchor.constraint(equalToConstant: LayoutConstants.roundButtonHeight.rawValue),
 			self.roundButton.widthAnchor.constraint(equalToConstant: LayoutConstants.roundButtonHeight.rawValue)
 		]
-		wChRConstraints.append(contentsOf: set)
+		self.compactRegularConstraints.append(contentsOf: set)
 	}
 
 	func setupRectangularButtonLayout() {
@@ -223,7 +223,7 @@ private extension FirstView {
 			self.rectButton.heightAnchor.constraint(equalToConstant: LayoutConstants.roundButtonHeight.rawValue),
 			self.rectButton.widthAnchor.constraint(equalToConstant: LayoutConstants.rectButtonWidth.rawValue)
 		]
-		wChRConstraints.append(contentsOf: set)
+		self.compactRegularConstraints.append(contentsOf: set)
 	}
 
 	func setupImageLayout() {
@@ -236,7 +236,7 @@ private extension FirstView {
 			self.image.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor,
 											   multiplier: LayoutConstants.imageHeightMultiplier.rawValue)
 		]
-		wChRConstraints.append(contentsOf: set)
+		self.compactRegularConstraints.append(contentsOf: set)
 	}
 
 	func setupSpinnerLayout() {
@@ -246,6 +246,6 @@ private extension FirstView {
 			self.spinner.centerXAnchor.constraint(equalTo: self.image.centerXAnchor),
 			self.spinner.centerYAnchor.constraint(equalTo: self.image.centerYAnchor)
 		]
-		wChRConstraints.append(contentsOf: set)
+		self.compactRegularConstraints.append(contentsOf: set)
 	}
 }

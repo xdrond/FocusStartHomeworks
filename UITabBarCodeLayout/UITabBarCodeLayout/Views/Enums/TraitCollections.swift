@@ -10,13 +10,13 @@ import UIKit
 
 enum SizeClass {
 	// Portrait.
-	case wChR
+	case CompactRegular
 	// Landscape.
-	case wChC
+	case CompactCompact
 	// Landscape.
-	case wRhC
+	case Regularcompact
 	// iPad's.
-	case wRhR
+	case RegularRegular
 	// Unspecified.
 	case unspecified
 
@@ -24,13 +24,13 @@ enum SizeClass {
 		let current = UIScreen.main.traitCollection
 		switch (current.horizontalSizeClass, current.verticalSizeClass) {
 		case (.compact, .regular):
-			return .wChR
+			return .CompactRegular
 		case (.compact, .compact):
-			return .wChC
+			return .CompactCompact
 		case (.regular, .compact):
-			return .wRhC
+			return .Regularcompact
 		case (.regular, .regular):
-			return .wRhR
+			return .RegularRegular
 		default:
 			return .unspecified
 		}
