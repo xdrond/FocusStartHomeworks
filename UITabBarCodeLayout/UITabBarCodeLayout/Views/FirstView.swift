@@ -17,14 +17,11 @@ final class FirstView: UIView {
 	private var thirdLabel = UILabel()
 
 	private var roundButton = UIButton()
-	private var rectangularButton = UIButton()
+	private var rectButton = UIButton()
 
 	private var image = UIImageView()
 	private var spinner = UIActivityIndicatorView()
 
-	private enum Constants: CGFloat {
-		case borderIndent = 8
-	}
 	private var wChRConstraints: [NSLayoutConstraint] = []
 
 	// MARK: - Initializers
@@ -45,14 +42,27 @@ final class FirstView: UIView {
 private extension FirstView {
 
 	// MARK: - Appearances
+	enum AppearanceConstants: CGFloat {
+		case stackSpacing = 4
+
+		case secondLabelFontSize = 24
+		case thirdLabelFontSize = 17
+
+		case rectButtonCornerRadius = 8
+	}
+
 	func setupViewsAppearance() {
 		setupViewAppearance()
+
 		setupStackViewAppearance()
+
 		setupFirstLabelAppearance()
 		setupSecondLabelAppearance()
 		setupThirdLabelAppearance()
+
 		setupRoundButtonAppearance()
 		setupRectangularButtonAppearance()
+
 		setupImageAppearance()
 		setupSpinnerAppearance()
 	}
@@ -65,7 +75,7 @@ private extension FirstView {
 		self.stackView.axis = .vertical
 		self.stackView.distribution = .equalCentering
 		self.stackView.alignment = .center
-		self.stackView.spacing = 4
+		self.stackView.spacing = AppearanceConstants.stackSpacing.rawValue
 	}
 
 	func setupFirstLabelAppearance() {
@@ -76,15 +86,17 @@ private extension FirstView {
 
 	func setupSecondLabelAppearance() {
 		self.secondLabel.text = "Текст большого размера."
-		self.secondLabel.font = .boldSystemFont(ofSize: 24)
+		self.secondLabel.font = .boldSystemFont(ofSize: AppearanceConstants.secondLabelFontSize.rawValue)
 		self.secondLabel.textColor = UIColor.appColor(.fontColor)
 		self.secondLabel.backgroundColor = UIColor.appColor(.backgroundColor)
 	}
 
 	func setupThirdLabelAppearance() {
-		self.thirdLabel.text = "Текст, всегда занимающий две строки."
+		self.thirdLabel.text = "Текст, который всегда занимает две строки, но не больше."
+		self.thirdLabel.textAlignment = .center
 		self.thirdLabel.numberOfLines = 2
-		if let customFont = UIFont(name: "Helvetica", size: 17) {
+
+		if let customFont = UIFont(name: "Helvetica", size: AppearanceConstants.thirdLabelFontSize.rawValue) {
 			self.thirdLabel.font = customFont
 		} else { assertionFailure("Font not found!") }
 		self.thirdLabel.textColor = UIColor.appColor(.fontColor)
@@ -92,18 +104,14 @@ private extension FirstView {
 	}
 
 	func setupRoundButtonAppearance() {
-		// Стоит добавить выполнение этого в viewDidLayoutSubviews,
-		// чтобы гарантировать, что Auto Layout включен.
 		self.roundButton.setTitle("🌎", for: .normal)
 		self.roundButton.backgroundColor = UIColor.appColor(.fontColor)
-		self.roundButton.layer.cornerRadius = self.roundButton.frame.width / 2
+		self.roundButton.layer.cornerRadius = LayoutConstants.roundButtonHeight.rawValue / 2
 	}
 
 	func setupRectangularButtonAppearance() {
-		self.rectangularButton.setTitle("Кнопка", for: .normal)
-		self.rectangularButton.backgroundColor = UIColor.appColor(.fontColor)
-		self.rectangularButton.titleLabel?.textColor = UIColor.appColor(.backgroundColor)
-		self.rectangularButton.layer.cornerRadius = 8
+		self.rectButton.backgroundColor = UIColor.appColor(.fontColor)
+		self.rectButton.layer.cornerRadius = AppearanceConstants.rectButtonCornerRadius.rawValue
 	}
 
 	func setupImageAppearance() {
@@ -122,7 +130,20 @@ private extension FirstView {
 // MARK: - Private Methods
 private extension FirstView {
 
-	// MARK: - Layout
+		// MARK: - Layout
+	enum LayoutConstants: CGFloat {
+		case thirdLabelWidth = 280
+
+		case roundButtonHeight = 56
+		case rectButtonWidth = 168
+
+		case stackToImageSpacing = -16
+
+		case imageHeightMultiplier = 0.3
+
+		case borderIndent = 8
+	}
+
 	func setupViewsLayout() {
 
 		switch SizeClass.current {
@@ -139,9 +160,11 @@ private extension FirstView {
 
 	func wChRSetupLayout() {
 		setupStackViewLayout()
+
 		setupFirstLabelLayout()
 		setupSecondLabelLayout()
 		setupThirdLabelLayout()
+
 		setupRoundButtonLayout()
 		setupRectangularButtonLayout()
 
@@ -163,15 +186,15 @@ private extension FirstView {
 		self.stackView.addArrangedSubview(self.secondLabel)
 		self.stackView.addArrangedSubview(self.thirdLabel)
 		self.stackView.addArrangedSubview(self.roundButton)
-		self.stackView.addArrangedSubview(self.rectangularButton)
+		self.stackView.addArrangedSubview(self.rectButton)
 
 		let set = [
 			self.stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-												constant: -Constants.borderIndent.rawValue),
+												constant: LayoutConstants.borderIndent.rawValue),
 			self.stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
 			self.stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
 			self.stackView.bottomAnchor.constraint(equalTo: self.image.topAnchor,
-												   constant: -16)
+												   constant: LayoutConstants.stackToImageSpacing.rawValue)
 		]
 		wChRConstraints.append(contentsOf: set)
 
@@ -182,11 +205,26 @@ private extension FirstView {
 
 	func setupSecondLabelLayout() {}
 
-	func setupThirdLabelLayout() {}
+	func setupThirdLabelLayout() {
+		wChRConstraints.append(self.thirdLabel.widthAnchor.constraint(
+			equalToConstant: LayoutConstants.thirdLabelWidth.rawValue))
+	}
 
-	func setupRoundButtonLayout() {}
+	func setupRoundButtonLayout() {
+		let set = [
+			self.roundButton.heightAnchor.constraint(equalToConstant: LayoutConstants.roundButtonHeight.rawValue),
+			self.roundButton.widthAnchor.constraint(equalToConstant: LayoutConstants.roundButtonHeight.rawValue)
+		]
+		wChRConstraints.append(contentsOf: set)
+	}
 
-	func setupRectangularButtonLayout() {}
+	func setupRectangularButtonLayout() {
+		let set = [
+			self.rectButton.heightAnchor.constraint(equalToConstant: LayoutConstants.roundButtonHeight.rawValue),
+			self.rectButton.widthAnchor.constraint(equalToConstant: LayoutConstants.rectButtonWidth.rawValue)
+		]
+		wChRConstraints.append(contentsOf: set)
+	}
 
 	func setupImageLayout() {
 		self.addSubview(self.image)
@@ -194,9 +232,9 @@ private extension FirstView {
 		let set = [
 			self.image.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
 			self.image.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
-											   constant: -Constants.borderIndent.rawValue),
+											   constant: -LayoutConstants.borderIndent.rawValue),
 			self.image.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor,
-											   multiplier: 0.3)
+											   multiplier: LayoutConstants.imageHeightMultiplier.rawValue)
 		]
 		wChRConstraints.append(contentsOf: set)
 	}
