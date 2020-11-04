@@ -147,7 +147,7 @@ private extension FirstView {
 	func setupViewsLayout() {
 
 		switch SizeClass.current {
-		case .CompactRegular:
+		case .compactRegular:
 			CompactRegularSetupLayout()
 		default:
 			CompactRegularSetupLayout()

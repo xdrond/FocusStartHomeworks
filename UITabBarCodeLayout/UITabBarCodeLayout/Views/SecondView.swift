@@ -10,32 +10,25 @@ import UIKit
 
 final class SecondView: UIView {
 
-	// MARK: - Private Methods
+	// MARK: - Private Properties
 	private var scrollView = UIScrollView()
-
-	private var image = UIImageView()
-
+	private var bannerImage = UIImageView()
 	private var title = UILabel()
-	private var text = UILabel()
-	// Temp placeholder.
-	private let textContent =
-	"""
-	Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
-	"""
+	private var textContent = UILabel()
 
-	private var allConstraints: [NSLayoutConstraint] = []
+	private var sharedConstraints: [NSLayoutConstraint] = []
 	/**Portrait orientation.
 	SizeClass - width Compact, height Regular.
 	*/
-	private var CompactRegularConstraints: [NSLayoutConstraint] = []
+	private var compactRegularConstraints: [NSLayoutConstraint] = []
 	/**Landscape orientation.
 	SizeClass - width Compact, height Compact.
 	*/
-	private var CompactCompactConstraints: [NSLayoutConstraint] = []
+	private var compactCompactConstraints: [NSLayoutConstraint] = []
 	/**Landscape orientation.
 	SizeClass - width Regular, height Compact
 	*/
-	private var RegularCompactConstraints: [NSLayoutConstraint] = []
+	private var regularCompactConstraints: [NSLayoutConstraint] = []
 
 	// MARK: - Initializers
 	override init(frame: CGRect) {
@@ -52,15 +45,14 @@ final class SecondView: UIView {
 	// MARK: - Change Lifecycle
 	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
-		setupViewsLayout()
+		setupConstraints()
 	}
 	
 }
 
-// MARK: - Private Methods
+// MARK: - Appearances
 private extension SecondView {
 
-	// MARK: - Appearances
 	enum AppearanceConstants: CGFloat {
 		case secondLabelFontSize = 32
 	}
@@ -83,163 +75,218 @@ private extension SecondView {
 	func setupScrollViewAppearance() {}
 
 	func setupImageAppearance() {
-		self.image.image = UIImage.appImage(.waterSquare)
-		self.image.contentMode = .scaleAspectFill
-		self.image.clipsToBounds = true
+		self.bannerImage.image = UIImage.appImage(.waterSquare)
+		self.bannerImage.contentMode = .scaleAspectFill
+		self.bannerImage.clipsToBounds = true
 	}
 
 	func setupTitleAppearance() {
 		self.title.text = "Заголовок"
-		self.title.numberOfLines = 2
+		self.title.numberOfLines = 1
+		self.title.textAlignment = .center
 		self.title.font = .boldSystemFont(ofSize: AppearanceConstants.secondLabelFontSize.rawValue)
 		self.title.textColor = UIColor.appColor(.fontColor)
-		self.title.backgroundColor = UIColor.appColor(.backgroundColor)
 	}
 
 	func setupTextAppearance() {
-		self.text.text = textContent
-		self.text.numberOfLines = 0
-		self.text.textColor = UIColor.appColor(.fontColor)
-		self.text.backgroundColor = UIColor.appColor(.backgroundColor)
+		self.textContent.numberOfLines = 0
+		self.textContent.text =
+		"""
+		Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?
+		"""
+		self.textContent.textColor = UIColor.appColor(.fontColor)
+		self.textContent.backgroundColor = UIColor.appColor(.backgroundColor)
 	}
 
 }
 
-// MARK: - Private Methods
+// MARK: - Layout
 private extension SecondView {
 
-	// MARK: - Layout
-	func setupViewsLayout() {
+	enum LayoutConstants: CGFloat {
+		case imageHeightMultiplier = 0.5
+		case borderIndent = 16
+	}
 
-		NSLayoutConstraint.deactivate(self.allConstraints)
-		self.allConstraints.removeAll()
+	func setupViewsLayout() {
+		disableTranslatesAutoresizingMaskIntoConstraints()
+		setupSubviews()
+		setupConstraints()
+	}
+
+	func disableTranslatesAutoresizingMaskIntoConstraints() {
+		self.scrollView.translatesAutoresizingMaskIntoConstraints = false
+		self.bannerImage.translatesAutoresizingMaskIntoConstraints = false
+		self.title.translatesAutoresizingMaskIntoConstraints = false
+		self.textContent.translatesAutoresizingMaskIntoConstraints = false
+	}
+
+	func setupSubviews() {
+		self.addSubview(self.scrollView)
+		self.scrollView.addSubview(self.bannerImage)
+		self.scrollView.addSubview(self.title)
+		self.scrollView.addSubview(self.textContent)
+	}
+
+	func setupConstraints() {
+
+		setupSharedConstraints()
 
 		switch SizeClass.current {
-		case .CompactRegular:
-			CompactRegularSetupLayout()
-		case .CompactCompact:
-			CompactCompactSetupLayout()
-		case .Regularcompact:
-			RegularCompactSetupLayout()
-		default:
-			CompactRegularSetupLayout()
+		case .compactRegular:
+			setupCompactRegularConstraints()
+		case .compactCompact:
+			setupCompactCompactConstraints()
+		case .regularCompact:
+			// Layout well with Compact Compact.
+			setupCompactCompactConstraints()
+		case .regularRegular:
+			// Layout well with Compact Regular.
+			setupCompactRegularConstraints()
+		case .unspecified:
 			assertionFailure("No constraints are configured for this SizeClass!")
+			setupCompactRegularConstraints()
 		}
-
-		NSLayoutConstraint.activate(self.allConstraints)
 	}
 
-	func CompactRegularSetupLayout() {
-		CompactRegularSetupScrollViewLayout()
-		CompactRegularSetupImageLayout()
-		CompactRegularSetupTitleLayout()
-		CompactRegularSetupTextLayout()
-	}
+//	func activateConstraints(constraints: [NSLayoutConstraint], setup: ()->Void) {
+//		if self.constraints.isEmpty {
+//			setup()
+//		}
+//		if let isActive = self.constraints.first?.isActive {
+//			if !isActive { NSLayoutConstraint.activate(self.constraints) }
+//		}
+//	}
 
-	func CompactCompactSetupLayout() {
-		CompactCompactSetupScrollViewLayout()
-		CompactCompactSetupImageLayout()
-		CompactCompactSetupTitleLayout()
-		CompactCompactSetupTextLayout()
-	}
-
-	func RegularCompactSetupLayout() {
-		RegularCompactSetupScrollViewLayout()
-		RegularCompactSetupImageLayout()
-		RegularCompactSetupTitleLayout()
-		RegularCompactSetupTextLayout()
+	func deactivateIfActiveAllConstraints() {
+		if let isActive = compactRegularConstraints.first?.isActive {
+			if isActive { NSLayoutConstraint.deactivate(compactRegularConstraints) }
+		}
+		if let isActive = compactCompactConstraints.first?.isActive {
+			if isActive { NSLayoutConstraint.deactivate(compactCompactConstraints) }
+		}
+		if let isActive = regularCompactConstraints.first?.isActive {
+			if isActive { NSLayoutConstraint.deactivate(regularCompactConstraints) }
+		}
 	}
 
 }
 
-// MARK: - CompactRegularSetupLayout
+// MARK: - Shared constraints
 private extension SecondView {
-	func CompactRegularSetupScrollViewLayout() {
-		self.addSubview(self.scrollView)
-		self.scrollView.translatesAutoresizingMaskIntoConstraints = false
-		let set = [
+
+	func setupSharedConstraints() {
+		if self.sharedConstraints.isEmpty {
+			scrollViewConstraints()
+		}
+		if let isActive = self.sharedConstraints.first?.isActive {
+			if !isActive { NSLayoutConstraint.activate(self.sharedConstraints) }
+		}
+	}
+
+	func scrollViewConstraints() {
+		self.sharedConstraints.append(contentsOf: [
 			self.scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
 			self.scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
 			self.scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
 			self.scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-		]
-		self.allConstraints.append(contentsOf: set)
+			])
+	}
+}
+
+// MARK: - Compact Regular constraints
+private extension SecondView {
+
+	func setupCompactRegularConstraints() {
+		if self.compactRegularConstraints.isEmpty {
+			compactRegularBannerConstraints()
+			compactRegularTitleConstraints()
+			compactRegularTextConstraints()
+		}
+		if let isActive = self.compactRegularConstraints.first?.isActive {
+			if !isActive {
+				self.deactivateIfActiveAllConstraints()
+				NSLayoutConstraint.activate(self.compactRegularConstraints)
+			}
+		}
 	}
 
-	func CompactRegularSetupImageLayout() {
-		self.scrollView.addSubview(self.image)
-		self.image.translatesAutoresizingMaskIntoConstraints = false
-		let set = [
-			self.image.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-			self.image.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-			self.image.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-			self.image.heightAnchor.constraint(equalToConstant: 300)
-		]
-		self.allConstraints.append(contentsOf: set)
+	func compactRegularBannerConstraints() {
+		self.compactRegularConstraints.append(contentsOf: [
+			self.bannerImage.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+			self.bannerImage.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			self.bannerImage.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			self.bannerImage.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor,
+													 multiplier: LayoutConstants.imageHeightMultiplier.rawValue)
+			])
 	}
 
-	func CompactRegularSetupTitleLayout() {
-		self.scrollView.addSubview(self.title)
-		self.title.translatesAutoresizingMaskIntoConstraints = false
-		let set = [
-			self.title.topAnchor.constraint(equalTo: self.image.bottomAnchor, constant: 16),
+	func compactRegularTitleConstraints() {
+		self.compactRegularConstraints.append(contentsOf: [
+			self.title.topAnchor.constraint(equalTo: self.bannerImage.bottomAnchor, constant: 16),
 			self.title.heightAnchor.constraint(equalToConstant: 40),
 			self.title.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-		]
-		self.allConstraints.append(contentsOf: set)
+			])
 	}
 
-	func CompactRegularSetupTextLayout() {
-		self.scrollView.addSubview(self.text)
-		self.text.translatesAutoresizingMaskIntoConstraints = false
-		let set = [
-			self.text.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 16),
-			self.text.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-			self.text.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-			self.text.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
-		]
-		self.allConstraints.append(contentsOf: set)
-	}
-}
-
-// MARK: - CompactCompactSetupLayout
-private extension SecondView {
-
-	func CompactCompactSetupScrollViewLayout() {
-
-	}
-
-	func CompactCompactSetupImageLayout() {
-
-	}
-
-	func CompactCompactSetupTitleLayout() {
-
-	}
-
-	func CompactCompactSetupTextLayout() {
-
+	func compactRegularTextConstraints() {
+		self.compactRegularConstraints.append(contentsOf: [
+			self.textContent.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 16),
+			self.textContent.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+			self.textContent.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			self.textContent.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
+			])
 	}
 
 }
 
-// MARK: - RegularCompactSetupLayout
+// MARK: - Compact Compact constraints
 private extension SecondView {
 
-	func RegularCompactSetupScrollViewLayout() {
-
+	func setupCompactCompactConstraints() {
+		if self.compactCompactConstraints.isEmpty {
+			compactCompactBannerConstraints()
+			compactCompactTitleConstraints()
+			compactCompactTextConstraints()
+		}
+		if let isActive = self.compactCompactConstraints.first?.isActive {
+			if !isActive {
+				self.deactivateIfActiveAllConstraints()
+				NSLayoutConstraint.activate(self.compactCompactConstraints)
+			}
+		}
 	}
 
-	func RegularCompactSetupImageLayout() {
-
+	func compactCompactBannerConstraints() {
+		self.compactCompactConstraints.append(contentsOf: [
+			self.bannerImage.topAnchor.constraint(equalTo: self.scrollView.topAnchor,
+												  constant: LayoutConstants.borderIndent.rawValue),
+			self.bannerImage.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+													  constant: LayoutConstants.borderIndent.rawValue),
+			self.bannerImage.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor,
+													 multiplier: LayoutConstants.imageHeightMultiplier.rawValue),
+			self.bannerImage.widthAnchor.constraint(equalTo: self.bannerImage.heightAnchor)
+			])
 	}
 
-	func RegularCompactSetupTitleLayout() {
-
+	func compactCompactTitleConstraints() {
+		self.compactCompactConstraints.append(contentsOf: [
+			self.title.centerYAnchor.constraint(equalTo: self.bannerImage.centerYAnchor),
+			self.title.heightAnchor.constraint(equalToConstant: 40),
+			self.title.leadingAnchor.constraint(equalTo: self.bannerImage.trailingAnchor),
+			self.title.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			])
 	}
 
-	func RegularCompactSetupTextLayout() {
-
+	func compactCompactTextConstraints() {
+		self.compactCompactConstraints.append(contentsOf: [
+			self.textContent.topAnchor.constraint(equalTo: self.bannerImage.bottomAnchor,
+												  constant: 16),
+			self.textContent.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+													  constant: LayoutConstants.borderIndent.rawValue),
+			self.textContent.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+			self.textContent.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor)
+			])
 	}
 
 }
