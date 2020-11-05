@@ -149,15 +149,6 @@ private extension SecondView {
 		}
 	}
 
-//	func activateConstraints(constraints: [NSLayoutConstraint], setup: ()->Void) {
-//		if self.constraints.isEmpty {
-//			setup()
-//		}
-//		if let isActive = self.constraints.first?.isActive {
-//			if !isActive { NSLayoutConstraint.activate(self.constraints) }
-//		}
-//	}
-
 	func deactivateIfActiveAllConstraints() {
 		if let isActive = compactRegularConstraints.first?.isActive {
 			if isActive { NSLayoutConstraint.deactivate(compactRegularConstraints) }
