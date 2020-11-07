@@ -22,7 +22,7 @@ final class SecondViewController: UIViewController {
 
 	// MARK: - Lifecycle
 	override func loadView() {
-		self.view = SecondView(frame: .zero)
+		self.view = SecondView()
 	}
 
 	// MARK: - Private Methods

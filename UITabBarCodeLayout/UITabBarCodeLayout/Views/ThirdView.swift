@@ -25,8 +25,8 @@ final class ThirdView: UIView {
 	private var bottomButtonConstraints: [NSLayoutConstraint] = []
 
 	// MARK: - Initializers
-	override init(frame: CGRect) {
-		super.init(frame: frame)
+	init() {
+		super.init(frame: .zero)
 
 		setupViewsAppearance()
 		setupViewsLayout()

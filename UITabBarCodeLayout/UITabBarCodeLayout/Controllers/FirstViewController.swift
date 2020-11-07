@@ -22,7 +22,7 @@ final class FirstViewController: UIViewController {
 
 	// MARK: - Lifecycle
 	override func loadView() {
-		self.view = FirstView(frame: .zero)
+		self.view = FirstView()
 	}
 
 	// MARK: - Private Methods

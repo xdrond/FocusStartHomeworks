@@ -23,7 +23,7 @@ final class ThirdViewController: UIViewController {
 
 	// MARK: - Lifecycle
 	override func loadView() {
-		self.view = ThirdView(frame: .zero)
+		self.view = ThirdView()
 	}
 
 }
