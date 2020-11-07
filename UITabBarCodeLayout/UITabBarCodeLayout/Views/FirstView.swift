@@ -11,16 +11,16 @@ import UIKit
 final class FirstView: UIView {
 
 	// MARK: - Private Properties
-	private var stackView = UIStackView()
-	private var firstLabel = UILabel()
-	private var secondLabel = UILabel()
-	private var thirdLabel = UILabel()
+	private let stackView = UIStackView()
+	private let firstLabel = UILabel()
+	private let secondLabel = UILabel()
+	private let thirdLabel = UILabel()
 
-	private var roundButton = UIButton()
-	private var rectButton = UIButton()
+	private let roundButton = UIButton()
+	private let rectButton = UIButton()
 
-	private var image = UIImageView()
-	private var spinner = UIActivityIndicatorView()
+	private let image = UIImageView()
+	private let spinner = UIActivityIndicatorView()
 
 	private var compactRegularConstraints: [NSLayoutConstraint] = []
 
@@ -28,8 +28,8 @@ final class FirstView: UIView {
 	init() {
 		super.init(frame: .zero)
 		
-		setupViewsAppearance()
-		setupViewsLayout()
+		self.setupViewsAppearance()
+		self.setupViewsLayout()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -52,19 +52,19 @@ private extension FirstView {
 	}
 
 	func setupViewsAppearance() {
-		setupViewAppearance()
+		self.setupViewAppearance()
 
-		setupStackViewAppearance()
+		self.setupStackViewAppearance()
 
-		setupFirstLabelAppearance()
-		setupSecondLabelAppearance()
-		setupThirdLabelAppearance()
+		self.setupFirstLabelAppearance()
+		self.setupSecondLabelAppearance()
+		self.setupThirdLabelAppearance()
 
-		setupRoundButtonAppearance()
-		setupRectangularButtonAppearance()
+		self.setupRoundButtonAppearance()
+		self.setupRectangularButtonAppearance()
 
-		setupImageAppearance()
-		setupSpinnerAppearance()
+		self.setupImageAppearance()
+		self.setupSpinnerAppearance()
 	}
 
 	func setupViewAppearance() {
@@ -95,12 +95,13 @@ private extension FirstView {
 		self.thirdLabel.text = "Текст, который всегда занимает две строки, но не больше."
 		self.thirdLabel.textAlignment = .center
 		self.thirdLabel.numberOfLines = 2
-
-		if let customFont = UIFont(name: "Helvetica", size: AppearanceConstants.thirdLabelFontSize.rawValue) {
-			self.thirdLabel.font = customFont
-		} else { assertionFailure("Font not found!") }
 		self.thirdLabel.textColor = UIColor.appColor(.fontColor)
 		self.thirdLabel.backgroundColor = UIColor.appColor(.backgroundColor)
+		guard self.thirdLabel.font = UIFont(name: "Helvetica",
+											size: AppearanceConstants.thirdLabelFontSize.rawValue) else {
+			assertionFailure("Font not found!")
+			return
+		}
 	}
 
 	func setupRoundButtonAppearance() {
@@ -148,28 +149,25 @@ private extension FirstView {
 
 		switch SizeClass.current {
 		case .compactRegular:
-			CompactRegularSetupLayout()
+			self.CompactRegularSetupLayout()
 		default:
-			CompactRegularSetupLayout()
+			self.CompactRegularSetupLayout()
 			print("No constraints are configured for this SizeClass!")
 		}
 
-		disableTranslatesAutoresizingMaskIntoConstraints()
+		self.disableTranslatesAutoresizingMaskIntoConstraints()
 		NSLayoutConstraint.activate(self.compactRegularConstraints)
 	}
 
 	func CompactRegularSetupLayout() {
-		setupStackViewLayout()
+		self.setupStackViewLayout()
 
-		setupFirstLabelLayout()
-		setupSecondLabelLayout()
-		setupThirdLabelLayout()
+		self.setupThirdLabelLayout()
+		self.setupRoundButtonLayout()
+		self.setupRectangularButtonLayout()
 
-		setupRoundButtonLayout()
-		setupRectangularButtonLayout()
-
-		setupImageLayout()
-		setupSpinnerLayout()
+		self.setupImageLayout()
+		self.setupSpinnerLayout()
 	}
 
 	func disableTranslatesAutoresizingMaskIntoConstraints() {
@@ -200,10 +198,6 @@ private extension FirstView {
 
 		self.addSubview(self.stackView)
 	}
-
-	func setupFirstLabelLayout() {}
-
-	func setupSecondLabelLayout() {}
 
 	func setupThirdLabelLayout() {
 		self.compactRegularConstraints.append(self.thirdLabel.widthAnchor.constraint(

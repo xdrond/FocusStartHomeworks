@@ -12,13 +12,13 @@ final class ThirdView: UIView {
 
 	// MARK: - Public Methods
 	func moveEnterButton(keyboardHeight: CGFloat) {
-		setupChangingButtonConstraints(keyboardHeight: keyboardHeight)
+		self.setupChangingButtonConstraints(keyboardHeight: keyboardHeight)
 	}
 
 	// MARK: - Private Properties
-	private var loginTextField = UITextField()
-	private var passwordTextField = UITextField()
-	private var enterButton = UIButton()
+	private let loginTextField = UITextField()
+	private let passwordTextField = UITextField()
+	private let enterButton = UIButton()
 
 	private var allConstraints: [NSLayoutConstraint] = []
 	private var upButtonConstraints: [NSLayoutConstraint] = []
@@ -28,9 +28,9 @@ final class ThirdView: UIView {
 	init() {
 		super.init(frame: .zero)
 
-		setupViewsAppearance()
-		setupViewsLayout()
-		setupGestures()
+		self.setupViewsAppearance()
+		self.setupViewsLayout()
+		self.setupGestures()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -43,10 +43,10 @@ final class ThirdView: UIView {
 private extension ThirdView {
 
 	func setupViewsAppearance() {
-		setupViewAppearance()
-		setupLoginTextFieldAppearance()
-		setupPasswordTextFieldAppearance()
-		setupEnterButtonAppearance()
+		self.setupViewAppearance()
+		self.setupLoginTextFieldAppearance()
+		self.setupPasswordTextFieldAppearance()
+		self.setupEnterButtonAppearance()
 	}
 
 	func setupViewAppearance() {
@@ -90,9 +90,9 @@ private extension ThirdView {
 private extension ThirdView {
 
 	func setupViewsLayout() {
-		disableTranslatesAutoresizingMaskIntoConstraints()
-		setupSubviews()
-		setupConstraints()
+		self.disableTranslatesAutoresizingMaskIntoConstraints()
+		self.setupSubviews()
+		self.setupConstraints()
 	}
 
 	func disableTranslatesAutoresizingMaskIntoConstraints() {
@@ -113,11 +113,11 @@ private extension ThirdView {
 private extension ThirdView {
 
 	func setupConstraints() {
-		setupLoginTextFieldConstraints()
-		setupPasswordTextFieldConstraints()
-		setupButtonConstraints()
+		self.setupLoginTextFieldConstraints()
+		self.setupPasswordTextFieldConstraints()
+		self.setupButtonConstraints()
 		NSLayoutConstraint.activate(allConstraints)
-		setupChangingButtonConstraints(keyboardHeight: 0)
+		self.setupChangingButtonConstraints(keyboardHeight: 0)
 	}
 
 	func setupLoginTextFieldConstraints() {
@@ -130,7 +130,7 @@ private extension ThirdView {
 														  constant: -24),
 			self.loginTextField.heightAnchor.constraint(equalToConstant: 32)
 		]
-		allConstraints.append(contentsOf: set)
+		self.allConstraints.append(contentsOf: set)
 	}
 
 	func setupPasswordTextFieldConstraints() {
@@ -141,7 +141,7 @@ private extension ThirdView {
 			self.passwordTextField.heightAnchor.constraint(equalTo: self.loginTextField.heightAnchor),
 			self.passwordTextField.widthAnchor.constraint(equalTo: self.loginTextField.widthAnchor)
 		]
-		allConstraints.append(contentsOf: set)
+		self.allConstraints.append(contentsOf: set)
 	}
 
 	func setupButtonConstraints() {
@@ -150,26 +150,26 @@ private extension ThirdView {
 				self.enterButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
 				self.enterButton.widthAnchor.constraint(equalToConstant: 144),
 		]
-		allConstraints.append(contentsOf: set)
+		self.allConstraints.append(contentsOf: set)
 	}
 
 	func setupChangingButtonConstraints(keyboardHeight: CGFloat) {
 
 		if keyboardHeight.isZero {
-			if let upActive = upButtonConstraints.first?.isActive {
-				if upActive { NSLayoutConstraint.deactivate(upButtonConstraints) }
+			if let upActive = self.upButtonConstraints.first?.isActive {
+				if upActive { NSLayoutConstraint.deactivate(self.upButtonConstraints) }
 			}
-			addBottomButtonConstraint()
-			NSLayoutConstraint.activate(bottomButtonConstraints)
+			self.addBottomButtonConstraint()
+			NSLayoutConstraint.activate(self.bottomButtonConstraints)
 			UIView.animate(withDuration: 0.5) {
 				self.layoutIfNeeded()
 			}
 		} else {
-			if let bottomActive = bottomButtonConstraints.first?.isActive {
-				if bottomActive { NSLayoutConstraint.deactivate(bottomButtonConstraints) }
+			if let bottomActive = self.bottomButtonConstraints.first?.isActive {
+				if bottomActive { NSLayoutConstraint.deactivate(self.bottomButtonConstraints) }
 			}
-			addUpButtonConstraint(upTo: keyboardHeight)
-			NSLayoutConstraint.activate(upButtonConstraints)
+			self.addUpButtonConstraint(upTo: keyboardHeight)
+			NSLayoutConstraint.activate(self.upButtonConstraints)
 			UIView.animate(withDuration: 0.5) {
 				self.layoutIfNeeded()
 			}
@@ -177,8 +177,8 @@ private extension ThirdView {
 	}
 
 	func addUpButtonConstraint(upTo: CGFloat) {
-		if upButtonConstraints.isEmpty {
-			upButtonConstraints.append(contentsOf: [
+		if self.upButtonConstraints.isEmpty {
+			self.upButtonConstraints.append(contentsOf: [
 				self.enterButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
 														 constant: 32-upTo)
 				])
@@ -186,8 +186,8 @@ private extension ThirdView {
 	}
 
 	func addBottomButtonConstraint() {
-		if bottomButtonConstraints.isEmpty {
-			bottomButtonConstraints.append(contentsOf: [
+		if self.bottomButtonConstraints.isEmpty {
+			self.bottomButtonConstraints.append(contentsOf: [
 				self.enterButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
 														 constant: -32)
 				])
@@ -200,12 +200,12 @@ private extension ThirdView {
 private extension ThirdView {
 
 	func setupGestures() {
-		hideKeyboardWhenTappedAround()
+		self.hideKeyboardWhenTappedAround()
 	}
 
 	func hideKeyboardWhenTappedAround() {
 		let tapGesture = UITapGestureRecognizer(target: self,
-												action: #selector(hideKeyboard))
+												action: #selector(self.hideKeyboard))
 		self.addGestureRecognizer(tapGesture)
 	}
 

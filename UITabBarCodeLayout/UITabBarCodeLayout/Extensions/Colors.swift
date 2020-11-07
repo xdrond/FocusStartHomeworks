@@ -16,7 +16,10 @@ enum AssetsColor: String {
 
 extension UIColor {
 	static func appColor(_ name: AssetsColor) -> UIColor? {
-		guard let color = UIColor(named: name.rawValue) else { assertionFailure(); return nil }
+		guard let color = UIColor(named: name.rawValue) else {
+			assertionFailure();
+			return nil
+		}
 		return color
 	}
 }

@@ -11,10 +11,10 @@ import UIKit
 final class SecondView: UIView {
 
 	// MARK: - Private Properties
-	private var scrollView = UIScrollView()
-	private var bannerImage = UIImageView()
-	private var title = UILabel()
-	private var textContent = UILabel()
+	private let scrollView = UIScrollView()
+	private let bannerImage = UIImageView()
+	private let title = UILabel()
+	private let textContent = UILabel()
 
 	private var sharedConstraints: [NSLayoutConstraint] = []
 	/**Portrait orientation.
@@ -34,8 +34,8 @@ final class SecondView: UIView {
 	init() {
 		super.init(frame: .zero)
 
-		setupViewsAppearance()
-		setupViewsLayout()
+		self.setupViewsAppearance()
+		self.setupViewsLayout()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -45,7 +45,7 @@ final class SecondView: UIView {
 	// MARK: - Change Lifecycle
 	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 		super.traitCollectionDidChange(previousTraitCollection)
-		setupConstraints()
+		self.setupConstraints()
 	}
 	
 }
@@ -58,14 +58,14 @@ private extension SecondView {
 	}
 
 	func setupViewsAppearance() {
-		setupViewAppearance()
+		self.setupViewAppearance()
 
-		setupScrollViewAppearance()
+		self.setupScrollViewAppearance()
 
-		setupImageAppearance()
+		self.setupImageAppearance()
 
-		setupTitleAppearance()
-		setupTextAppearance()
+		self.setupTitleAppearance()
+		self.setupTextAppearance()
 	}
 
 	func setupViewAppearance() {
@@ -109,9 +109,9 @@ private extension SecondView {
 	}
 
 	func setupViewsLayout() {
-		disableTranslatesAutoresizingMaskIntoConstraints()
-		setupSubviews()
-		setupConstraints()
+		self.disableTranslatesAutoresizingMaskIntoConstraints()
+		self.setupSubviews()
+		self.setupConstraints()
 	}
 
 	func disableTranslatesAutoresizingMaskIntoConstraints() {
@@ -130,34 +130,34 @@ private extension SecondView {
 
 	func setupConstraints() {
 
-		setupSharedConstraints()
+		self.setupSharedConstraints()
 
 		switch SizeClass.current {
 		case .compactRegular:
-			setupCompactRegularConstraints()
+			self.setupCompactRegularConstraints()
 		case .compactCompact:
-			setupCompactCompactConstraints()
+			self.setupCompactCompactConstraints()
 		case .regularCompact:
 			// Layout well with Compact Compact.
-			setupCompactCompactConstraints()
+			self.setupCompactCompactConstraints()
 		case .regularRegular:
 			// Layout well with Compact Regular.
-			setupCompactRegularConstraints()
+			self.setupCompactRegularConstraints()
 		case .unspecified:
 			assertionFailure("No constraints are configured for this SizeClass!")
-			setupCompactRegularConstraints()
+			self.setupCompactRegularConstraints()
 		}
 	}
 
 	func deactivateIfActiveAllConstraints() {
-		if let isActive = compactRegularConstraints.first?.isActive {
-			if isActive { NSLayoutConstraint.deactivate(compactRegularConstraints) }
+		if let isActive = self.compactRegularConstraints.first?.isActive {
+			if isActive { NSLayoutConstraint.deactivate(self.compactRegularConstraints) }
 		}
-		if let isActive = compactCompactConstraints.first?.isActive {
-			if isActive { NSLayoutConstraint.deactivate(compactCompactConstraints) }
+		if let isActive = self.compactCompactConstraints.first?.isActive {
+			if isActive { NSLayoutConstraint.deactivate(self.compactCompactConstraints) }
 		}
-		if let isActive = regularCompactConstraints.first?.isActive {
-			if isActive { NSLayoutConstraint.deactivate(regularCompactConstraints) }
+		if let isActive = self.regularCompactConstraints.first?.isActive {
+			if isActive { NSLayoutConstraint.deactivate(self.regularCompactConstraints) }
 		}
 	}
 
@@ -168,7 +168,7 @@ private extension SecondView {
 
 	func setupSharedConstraints() {
 		if self.sharedConstraints.isEmpty {
-			scrollViewConstraints()
+			self.scrollViewConstraints()
 		}
 		if let isActive = self.sharedConstraints.first?.isActive {
 			if !isActive { NSLayoutConstraint.activate(self.sharedConstraints) }
@@ -190,9 +190,9 @@ private extension SecondView {
 
 	func setupCompactRegularConstraints() {
 		if self.compactRegularConstraints.isEmpty {
-			compactRegularBannerConstraints()
-			compactRegularTitleConstraints()
-			compactRegularTextConstraints()
+			self.compactRegularBannerConstraints()
+			self.compactRegularTitleConstraints()
+			self.compactRegularTextConstraints()
 		}
 		if let isActive = self.compactRegularConstraints.first?.isActive {
 			if !isActive {
@@ -236,9 +236,9 @@ private extension SecondView {
 
 	func setupCompactCompactConstraints() {
 		if self.compactCompactConstraints.isEmpty {
-			compactCompactBannerConstraints()
-			compactCompactTitleConstraints()
-			compactCompactTextConstraints()
+			self.compactCompactBannerConstraints()
+			self.compactCompactTitleConstraints()
+			self.compactCompactTextConstraints()
 		}
 		if let isActive = self.compactCompactConstraints.first?.isActive {
 			if !isActive {

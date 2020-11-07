@@ -17,10 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	// MARK: - Public Methods
 	func application(_ application: UIApplication,
 					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		let viewControllers = [
+			FirstViewController(),
+			SecondViewController(),
+			ThirdViewController()
+		]
 
-		let tabBarController = createTabBarViewController(viewControllers: [FirstViewController(),
-																			SecondViewController(),
-																			ThirdViewController()])
+		let tabBarController = createTabBarViewController(viewControllers: viewControllers)
 		setupWindow(rootController: tabBarController)
 		return true
 	}

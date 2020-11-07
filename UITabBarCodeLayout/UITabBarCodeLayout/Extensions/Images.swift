@@ -20,7 +20,10 @@ enum AssetsImage: String {
 
 extension UIImage {
 	static func appImage(_ name: AssetsImage) -> UIImage {
-		guard let image = UIImage(named: name.rawValue) else { assertionFailure(); return UIImage() }
+		guard let image = UIImage(named: name.rawValue) else {
+			assertionFailure("Image '\(name.rawValue)' not found!")
+			return UIImage()
+		}
 		return image
 	}
 }
