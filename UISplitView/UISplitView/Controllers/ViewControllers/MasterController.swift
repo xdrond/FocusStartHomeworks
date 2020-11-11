@@ -46,12 +46,17 @@ final class MasterController: UIViewController {
 	
 }
 
+// Navigation.
 extension MasterController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let controller = DetailController()
-		controller.navigationItem.title = self.modelController.getPosts()[indexPath.row].header
-		self.showDetailViewController(UINavigationController(rootViewController: controller), sender: nil)
+		let post = self.modelController.postAtIndexPath(forIndexPath: indexPath)
+		controller.post = post
+
+		self.splitViewController?.showDetailViewController(controller, sender: nil)
+
+//		self.showDetailViewController(UINavigationController(rootViewController: controller), sender: nil)
 	}
 }
 

@@ -10,6 +10,9 @@ import UIKit
 
 final class DetailController: UIViewController {
 
+	// MARK: - Public Properties
+	var post: Post?
+
 	// MARK: - Initializers
 	init() {
 		super.init(nibName: nil, bundle: nil)
@@ -23,12 +26,18 @@ final class DetailController: UIViewController {
 
 	// MARK: - Lifecycle
 	override func loadView() {
-		self.view = DetailView()
+		self.view = DetailView(post: self.post)
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		guard let post = self.post else { return }
+		self.navigationItem.title = post.header
+		
 	}
 
 	// MARK: - Private Methods
 	private func setupNavigationItem() {
-		self.navigationItem.title = "Подробно"
 		self.navigationController?.navigationBar.prefersLargeTitles = true
 	}
 }
