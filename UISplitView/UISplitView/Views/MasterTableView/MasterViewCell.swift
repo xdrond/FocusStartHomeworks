@@ -39,7 +39,7 @@ private extension MasterViewCell {
 
 	func setupHeaderAppearance(){
 		self.header.text = "Заголовок"
-		self.header.lineBreakMode = .byWordWrapping
+		self.header.font = UIFont.preferredFont(forTextStyle: .headline)
 		self.header.numberOfLines = 2
 	}
 
@@ -50,7 +50,6 @@ private extension MasterViewCell {
 	}
 
 	func setupTimeAppearance(){
-		self.time.text = "4:20"
 		self.time.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
 	}
 
@@ -67,25 +66,33 @@ private extension MasterViewCell {
 	func setupHeaderLayout(){
 		self.header.translatesAutoresizingMaskIntoConstraints = false
 		self.contentView.addSubview(self.header)
-		self.header.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor).isActive = true
-		self.header.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor).isActive = true
-		self.header.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.6).isActive = true
+		self.header.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor,
+										 constant: 8).isActive = true
+		self.header.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor,
+											 constant: 8).isActive = true
+		self.header.widthAnchor.constraint(equalTo: self.contentView.widthAnchor,
+										   multiplier: 0.8).isActive = true
 	}
 
 	func setupStoryPartLayout(){
 		self.storyPart.translatesAutoresizingMaskIntoConstraints = false
 		self.contentView.addSubview(self.storyPart)
-		self.storyPart.topAnchor.constraint(equalTo: self.header.bottomAnchor).isActive = true
-		self.storyPart.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor).isActive = true
-		self.storyPart.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor).isActive = true
+		self.storyPart.topAnchor.constraint(equalTo: self.header.bottomAnchor,
+											constant: 8).isActive = true
+		self.storyPart.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor,
+												constant: 8).isActive = true
+		self.storyPart.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor,
+											   constant: -8).isActive = true
 	}
 
 	func setupTimeLayout(){
 		self.time.translatesAutoresizingMaskIntoConstraints = false
 		self.contentView.addSubview(self.time)
-		self.time.leadingAnchor.constraint(equalTo: self.storyPart.trailingAnchor).isActive = true
-		self.time.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor).isActive = true
-		self.time.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor).isActive = true
+		self.time.leadingAnchor.constraint(equalTo: self.storyPart.trailingAnchor,
+										   constant: 8).isActive = true
+		self.time.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor,
+											constant: -16).isActive = true
+		self.time.bottomAnchor.constraint(equalTo: self.storyPart.bottomAnchor).isActive = true
 	}
 
 }

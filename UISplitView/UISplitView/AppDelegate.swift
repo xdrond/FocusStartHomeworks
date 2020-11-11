@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	// MARK: - Private Methods
 	private func setupWindow(){
 
-		let masterController = MasterViewController()
+		let masterController = MasterController()
 		let masterNavigationController = UINavigationController(rootViewController: masterController)
 
-		let detailController = DetailViewController()
+		let detailController = DetailController()
 		let detailNavigationController = UINavigationController(rootViewController: detailController)
 
 		let splitViewController =  UISplitViewController()

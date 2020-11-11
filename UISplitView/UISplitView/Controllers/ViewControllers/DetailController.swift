@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  DetailController.swift
 //  UISplitView
 //
 //  Created by xdrond on 08.11.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DetailViewController: UIViewController {
+final class DetailController: UIViewController {
 
 	// MARK: - Initializers
 	init() {

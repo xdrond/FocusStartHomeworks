@@ -16,8 +16,8 @@
 		E2851F4E255ADC5F0040EB40 /* SafeIndexCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2851F4D255ADC5F0040EB40 /* SafeIndexCollection.swift */; };
 		E2DA8748255852C00023C1C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA8747255852C00023C1C9 /* AppDelegate.swift */; };
 		E2DA8752255852C10023C1C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2DA8750255852C10023C1C9 /* LaunchScreen.storyboard */; };
-		E2DA875E25585A780023C1C9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA875D25585A780023C1C9 /* MasterViewController.swift */; };
-		E2DA876025585A920023C1C9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA875F25585A920023C1C9 /* DetailViewController.swift */; };
+		E2DA875E25585A780023C1C9 /* MasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA875D25585A780023C1C9 /* MasterController.swift */; };
+		E2DA876025585A920023C1C9 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA875F25585A920023C1C9 /* DetailController.swift */; };
 		E2DA8762255863350023C1C9 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA8761255863350023C1C9 /* MasterView.swift */; };
 		E2DA8764255863470023C1C9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DA8763255863470023C1C9 /* DetailView.swift */; };
 /* End PBXBuildFile section */
@@ -34,8 +34,8 @@
 		E2DA8747255852C00023C1C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2DA8751255852C10023C1C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2DA8753255852C10023C1C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2DA875D25585A780023C1C9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		E2DA875F25585A920023C1C9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E2DA875D25585A780023C1C9 /* MasterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterController.swift; sourceTree = "<group>"; };
+		E2DA875F25585A920023C1C9 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		E2DA8761255863350023C1C9 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		E2DA8763255863470023C1C9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,8 +54,8 @@
 		E2851F4025599C8E0040EB40 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E2DA875D25585A780023C1C9 /* MasterViewController.swift */,
-				E2DA875F25585A920023C1C9 /* DetailViewController.swift */,
+				E2DA875D25585A780023C1C9 /* MasterController.swift */,
+				E2DA875F25585A920023C1C9 /* DetailController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -231,8 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2851F3B2559720D0040EB40 /* Model.swift in Sources */,
-				E2DA876025585A920023C1C9 /* DetailViewController.swift in Sources */,
-				E2DA875E25585A780023C1C9 /* MasterViewController.swift in Sources */,
+				E2DA876025585A920023C1C9 /* DetailController.swift in Sources */,
+				E2DA875E25585A780023C1C9 /* MasterController.swift in Sources */,
 				E2851F3F25599C880040EB40 /* ModelController.swift in Sources */,
 				E2851F4A255AD8FA0040EB40 /* MasterTableViewDataSource.swift in Sources */,
 				E2851F39255942C20040EB40 /* MasterViewCell.swift in Sources */,

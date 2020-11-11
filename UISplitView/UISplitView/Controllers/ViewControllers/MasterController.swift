@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  MasterController.swift
 //  UISplitView
 //
 //  Created by xdrond on 08.11.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MasterViewController: UIViewController {
+final class MasterController: UIViewController {
 
 	// MARK: - Private Properties
 	private let modelController = ModelController()
@@ -46,10 +46,10 @@ final class MasterViewController: UIViewController {
 	
 }
 
-extension MasterViewController: UITableViewDelegate {
+extension MasterController: UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let controller = DetailViewController()
+		let controller = DetailController()
 		controller.navigationItem.title = self.modelController.getPosts()[indexPath.row].header
 		self.showDetailViewController(UINavigationController(rootViewController: controller), sender: nil)
 	}

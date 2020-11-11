@@ -19,7 +19,7 @@ final class ModelController {
 	private var posts: [Post] = []
 
 	// MARK: - Mock data
-	private let mockHeader = "VENDÉE GLOBE SOLO, NON STOP AND WITHOUT ASSISTANCE"
+	private let mockHeader = "VENDÉE GLOBE SOLO, NON-STOP AND WITHOUT ASSISTANCE"
 	private let mockStory =
 	"""
 	To date, the Vendée Globe is the greatest sailing race round the world, solo, non-stop and without assistance. The event followed in the wake of the Golden Globe which had initiated the first circumnavigation of this type via the three capes (Good Hope, Leeuwin and Horn) in 1968. Only one out of the nine pioneers who had set off in 1968 succeeded in returning to Falmouth, the major port of British Cornwall. On 6th April 1969, after 313 days at sea, British sailor Robin Knox-Johnston finally reached his goal. Twenty years later, after having won the BOC Challenge twice(solo round the world with stopovers), navigator Philippe Jeantot introduced the idea of a new race around the world, but..non-stop! The Vendée Globe race was born. On 26th November 1989, thirteen sailors took the start of the first edition which lasted over three months. Only seven returned to Les Sables d'Olonne.

@@ -25,13 +25,34 @@ final class MasterTableViewDataSource: NSObject, UITableViewDataSource {
 		}
 
 		let post = self.modelController.postAtIndexPath(forIndexPath: indexPath)
+
 		cell.header.text = post?.header
 		cell.storyPart.text = post?.storyText
 
-		//Temp.
 		let formatterForTime = DateFormatter()
 		formatterForTime.dateFormat = "HH:mm"
 		cell.time.text = formatterForTime.string(from: post!.date)
+
+		// Искажение данных для соответствия ДЗ.
+		switch indexPath.row {
+		case 0:
+			cell.header.numberOfLines = 1
+			cell.storyPart.numberOfLines = 1
+		case 1:
+			cell.storyPart.numberOfLines = 1
+		case 2:
+			cell.header.numberOfLines = 1
+			cell.storyPart.numberOfLines = 1
+			cell.time.text = nil
+		case 3:
+			cell.header.numberOfLines = 1
+		case 4:
+			cell.header.numberOfLines = 1
+			cell.storyPart.text = nil
+			cell.time.text = nil
+		default:
+			print("Default cell")
+		}
 
 		return cell
 	}
