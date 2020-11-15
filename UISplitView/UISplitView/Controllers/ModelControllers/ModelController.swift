@@ -11,6 +11,10 @@ import UIKit
 final class ModelController {
 
 	// MARK: - Public Methods
+	func getPost(at index: Int) -> Post? {
+		return self.posts[safe: index]
+	}
+
 	func getPosts() -> [Post] {
 		return self.posts
 	}

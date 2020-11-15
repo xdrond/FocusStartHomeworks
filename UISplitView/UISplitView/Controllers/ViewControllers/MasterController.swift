@@ -33,6 +33,8 @@ final class MasterController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		splitViewController?.delegate = self
+
 		guard let view = self.view as? MasterView else { return }
 		view.tableViewDelegate = self
 		view.dataSource = self.dataSource
@@ -60,3 +62,8 @@ extension MasterController: UITableViewDelegate {
 	}
 }
 
+extension MasterController: UISplitViewControllerDelegate {
+	func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+		return true
+	}
+}

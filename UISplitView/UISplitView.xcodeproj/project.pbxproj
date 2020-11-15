@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E273FD6025603B5E003E49A7 /* ShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E273FD5F25603B5E003E49A7 /* ShadowImageView.swift */; };
 		E2851F39255942C20040EB40 /* MasterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2851F38255942C20040EB40 /* MasterViewCell.swift */; };
 		E2851F3B2559720D0040EB40 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2851F3A2559720D0040EB40 /* Model.swift */; };
 		E2851F3F25599C880040EB40 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2851F3E25599C880040EB40 /* ModelController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E273FD5F25603B5E003E49A7 /* ShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowImageView.swift; sourceTree = "<group>"; };
 		E2851F38255942C20040EB40 /* MasterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewCell.swift; sourceTree = "<group>"; };
 		E2851F3A2559720D0040EB40 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E2851F3E25599C880040EB40 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelController.swift; path = UISplitView/Controllers/ModelControllers/ModelController.swift; sourceTree = SOURCE_ROOT; };
@@ -137,6 +139,7 @@
 				E2DA8750255852C10023C1C9 /* LaunchScreen.storyboard */,
 				E2851F462559A3A20040EB40 /* MasterTableView */,
 				E2DA8763255863470023C1C9 /* DetailView.swift */,
+				E273FD5F25603B5E003E49A7 /* ShadowImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				E2DA875E25585A780023C1C9 /* MasterController.swift in Sources */,
 				E2851F3F25599C880040EB40 /* ModelController.swift in Sources */,
 				E2851F4A255AD8FA0040EB40 /* MasterTableViewDataSource.swift in Sources */,
+				E273FD6025603B5E003E49A7 /* ShadowImageView.swift in Sources */,
 				E2851F39255942C20040EB40 /* MasterViewCell.swift in Sources */,
 				E2DA8762255863350023C1C9 /* MasterView.swift in Sources */,
 				E2851F4E255ADC5F0040EB40 /* SafeIndexCollection.swift in Sources */,

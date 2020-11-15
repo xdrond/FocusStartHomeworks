@@ -12,12 +12,10 @@ final class MasterView: UIView {
 
 	// MARK: - Public Properties
 	weak var tableViewDelegate: UITableViewDelegate? {
-		get { return self.tableView.delegate }
-		set { self.tableView.delegate = newValue }
+		didSet { self.tableView.delegate = self.tableViewDelegate }
 	}
 	weak var dataSource: UITableViewDataSource? {
-		get { return self.tableView.dataSource }
-		set { self.tableView.dataSource = newValue }
+		didSet { self.tableView.dataSource = self.dataSource }
 	}
 
 	// MARK: - Private Properties

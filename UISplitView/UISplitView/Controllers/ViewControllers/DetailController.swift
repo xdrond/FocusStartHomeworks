@@ -11,7 +11,7 @@ import UIKit
 final class DetailController: UIViewController {
 
 	// MARK: - Public Properties
-	var post: Post?
+	var post: Post? = ModelController().getPost(at: 0)
 
 	// MARK: - Initializers
 	init() {
@@ -26,13 +26,17 @@ final class DetailController: UIViewController {
 
 	// MARK: - Lifecycle
 	override func loadView() {
-		self.view = DetailView(post: self.post)
+		self.view = DetailView()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+
 		guard let post = self.post else { return }
 		self.navigationItem.title = post.header
+
+		guard let view = self.view as? DetailView else { return }
+		view.post = post
 		
 	}
 
