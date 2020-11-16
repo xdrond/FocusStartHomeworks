@@ -8,21 +8,29 @@
 
 import Dispatch
 
-var arrayMainSafe = ThreadSafeArray<String>()
+var arrayMainSafe = ThreadSafeArray<Int>()
 let repeating = 1000
-
-func task(array: ThreadSafeArray<String>, repeating: Int) {
-	for number in 0...(repeating-1) {
-		array.append("task with \(number)")
-	}
-}
-
+let dispatchGroup = DispatchGroup()
 let concurrentQueue = DispatchQueue.global(qos: .userInitiated)
 
-for _ in 0...1{
-	concurrentQueue.async{ task(array: arrayMainSafe, repeating: repeating) }
+dispatchGroup.enter()
+concurrentQueue.async{
+	for number in 0...repeating {
+		arrayMainSafe.append(number)
+	}
+	dispatchGroup.leave()
+}
+
+dispatchGroup.enter()
+concurrentQueue.async{
+	for number in 0...repeating {
+		arrayMainSafe.append(number)
+	}
+	dispatchGroup.leave()
 }
 
 
-sleep(2)
+dispatchGroup.wait()
+
 print("\nРазмер массива: \(arrayMainSafe.count)")
+// Размер массива: 2002.
