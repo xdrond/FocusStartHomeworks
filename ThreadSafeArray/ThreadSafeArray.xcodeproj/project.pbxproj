@@ -27,6 +27,7 @@
 		E22A488B25457C8300327298 /* ThreadSafeArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeArray.swift; sourceTree = "<group>"; };
 		E23DF3932544064F00A75BE1 /* ThreadSafeArray */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ThreadSafeArray; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23DF3962544064F00A75BE1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E2727D0B25638A1D00E8F67D /* Task_2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Task_2.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +44,7 @@
 		E23DF38A2544064F00A75BE1 = {
 			isa = PBXGroup;
 			children = (
+				E2727D0B25638A1D00E8F67D /* Task_2.pdf */,
 				E23DF3952544064F00A75BE1 /* ThreadSafeArray */,
 				E23DF3942544064F00A75BE1 /* Products */,
 			);
