@@ -26,7 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E2846A4F2539948F00D9DD12 /* Car Records */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = "Car Records"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2727D0C25638A7F00E8F67D /* Task_1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Task_1.pdf; sourceTree = "<group>"; };
+		E2846A4F2539948F00D9DD12 /* CarRecords */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CarRecords; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2846A522539948F00D9DD12 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E2846A5925399D8600D9DD12 /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		E2846A5B253AA93900D9DD12 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
@@ -48,8 +49,8 @@
 		E2846A462539948F00D9DD12 = {
 			isa = PBXGroup;
 			children = (
-				E2BBD7C0255164B50093536C /* Task_2.pdf */,
-				E2846A512539948F00D9DD12 /* Car Records */,
+				E2727D0C25638A7F00E8F67D /* Task_1.pdf */,
+				E2846A512539948F00D9DD12 /* CarRecords */,
 				E2846A502539948F00D9DD12 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,12 +58,12 @@
 		E2846A502539948F00D9DD12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2846A4F2539948F00D9DD12 /* Car Records */,
+				E2846A4F2539948F00D9DD12 /* CarRecords */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2846A512539948F00D9DD12 /* Car Records */ = {
+		E2846A512539948F00D9DD12 /* CarRecords */ = {
 			isa = PBXGroup;
 			children = (
 				E2846A522539948F00D9DD12 /* main.swift */,
@@ -70,15 +71,15 @@
 				E2846A5B253AA93900D9DD12 /* ModelController.swift */,
 				E2846A5D253AABFF00D9DD12 /* ConsoleInterface.swift */,
 			);
-			path = "Car Records";
+			path = CarRecords;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2846A4E2539948F00D9DD12 /* Car Records */ = {
+		E2846A4E2539948F00D9DD12 /* CarRecords */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2846A562539948F00D9DD12 /* Build configuration list for PBXNativeTarget "Car Records" */;
+			buildConfigurationList = E2846A562539948F00D9DD12 /* Build configuration list for PBXNativeTarget "CarRecords" */;
 			buildPhases = (
 				E2846A4B2539948F00D9DD12 /* Sources */,
 				E2846A4C2539948F00D9DD12 /* Frameworks */,
@@ -88,9 +89,9 @@
 			);
 			dependencies = (
 			);
-			name = "Car Records";
+			name = CarRecords;
 			productName = "Car Records";
-			productReference = E2846A4F2539948F00D9DD12 /* Car Records */;
+			productReference = E2846A4F2539948F00D9DD12 /* CarRecords */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "Car Records" */;
+			buildConfigurationList = E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "CarRecords" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -120,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2846A4E2539948F00D9DD12 /* Car Records */,
+				E2846A4E2539948F00D9DD12 /* CarRecords */,
 			);
 		};
 /* End PBXProject section */
@@ -278,7 +279,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "Car Records" */ = {
+		E2846A4A2539948F00D9DD12 /* Build configuration list for PBXProject "CarRecords" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2846A542539948F00D9DD12 /* Debug */,
@@ -287,7 +288,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2846A562539948F00D9DD12 /* Build configuration list for PBXNativeTarget "Car Records" */ = {
+		E2846A562539948F00D9DD12 /* Build configuration list for PBXNativeTarget "CarRecords" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2846A572539948F00D9DD12 /* Debug */,

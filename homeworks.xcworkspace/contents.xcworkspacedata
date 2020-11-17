@@ -5,6 +5,9 @@
       location = "group:UITabBarCodeLayout/UITabBarCodeLayout.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Car Records/Car Records.xcodeproj">
+      location = "group:ThreadSafeArray/ThreadSafeArray.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CarRecords/CarRecords.xcodeproj">
    </FileRef>
 </Workspace>
