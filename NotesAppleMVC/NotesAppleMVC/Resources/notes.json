@@ -1,0 +1,12 @@
+[
+	{
+		"text": "First note",
+		"backgroundColor": "yellow"
+	}, {
+		"text": "Second note",
+		"backgroundColor": "blue"
+	}, {
+		"text": "Third note",
+		"backgroundColor": "green"
+	}
+]
