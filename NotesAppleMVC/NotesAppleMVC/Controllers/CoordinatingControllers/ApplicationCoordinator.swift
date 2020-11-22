@@ -9,28 +9,27 @@
 import UIKit
 
 final class ApplicationCoordinator {
-
-	let modelController: ModelControllerProtocol = ModelController()
-	let window: UIWindow
-	let rootViewController = NavigationController()
-	let noteListCoordinator: NoteListCoordinator
-
+	
+	// MARK: - Private Properties
+	private let modelController: IModelController = ModelController()
+	private let window: UIWindow
+	private let rootViewController = NavigationController()
+	private let noteTableCoordinator: NoteTableCoordinator
+	
+	// MARK: - Initializers
 	init(window: UIWindow) {
 		self.window = window
-
-		self.noteListCoordinator = NoteListCoordinator(presenter: self.rootViewController,
-												   modelController: self.modelController)
+		self.noteTableCoordinator = NoteTableCoordinator(presenter: self.rootViewController,
+														 modelController: self.modelController)
 	}
-
+	
 }
 
-extension ApplicationCoordinator: CoordinatorProtocol {
+extension ApplicationCoordinator: ICoordinator {
 	func start() {
 		self.window.rootViewController = rootViewController
-
-		noteListCoordinator.start()
-
-		window.makeKeyAndVisible()
+		self.noteTableCoordinator.start()
+		self.window.makeKeyAndVisible()
 	}
-
+	
 }

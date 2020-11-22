@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct Note {
+struct Note: Codable {
 	var text: String
 	var backgroundColor: String
 }
 
-extension Note: Codable {}

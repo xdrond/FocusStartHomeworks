@@ -35,7 +35,7 @@ final class ModelController {
 
 }
 
-extension ModelController: ModelControllerProtocol {
+extension ModelController: IModelController {
 	func getAllNotes() -> [Note] {
 		return self.notes
 	}
