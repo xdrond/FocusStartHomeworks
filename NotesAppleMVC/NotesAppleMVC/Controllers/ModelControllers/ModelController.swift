@@ -6,7 +6,7 @@
 //  Copyright © 2020 xdrondrr. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // Provides note data from JSON
 final class ModelController {
@@ -36,8 +36,15 @@ final class ModelController {
 }
 
 extension ModelController: IModelController {
+	func saveNote(note: Note) {
+		if let index = self.notes.firstIndex(where: { $0.id == note.id }) {
+			self.notes[index] = note
+		}
+	}
+
 	func getAllNotes() -> [Note] {
 		return self.notes
 	}
 
+	
 }

@@ -25,12 +25,16 @@ final class NoteDetailCoordinator {
 
 extension NoteDetailCoordinator: ICoordinator {
 	func start() {
-		let noteDetailViewController = NoteDetailViewController()
-
-		noteDetailViewController.note = self.note
-
+		let noteDetailViewController = NoteDetailViewController(note: self.note,
+																delegate: self)
 		presenter.pushViewController(noteDetailViewController, animated: true)
 		self.noteDetailViewController = noteDetailViewController
 	}
 
+}
+
+extension NoteDetailCoordinator: ISaveNoteDelegate {
+	func saveNote(note: Note) {
+		self.modelController.saveNote(note: note)
+	}
 }

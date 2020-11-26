@@ -8,4 +8,5 @@
 
 protocol IModelController {
 	func getAllNotes() -> [Note]
+	func saveNote(note: Note)
 }

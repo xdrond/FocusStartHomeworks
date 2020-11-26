@@ -1,5 +1,5 @@
 //
-//  NotesTableView.swift
+//  NoteTableView.swift
 //  NotesAppleMVC
 //
 //  Created by xdrond on 20.11.2020.
@@ -8,10 +8,7 @@
 
 import UIKit
 
-protocol INotesTableView {
-}
-
-final class NotesTableView: UIView {
+final class NoteTableView: UIView {
 
 	// MARK: - Public Properties
 	weak var tableViewDelegate: UITableViewDelegate? {
@@ -22,16 +19,13 @@ final class NotesTableView: UIView {
 	}
 
 	// MARK: - Private Properties
-	private lazy var tableView: UITableView = {
-		self.setupTableAppearance()
-	}()
+	private lazy var tableView: UITableView = self.setupTableAppearance()
 
 	// MARK: - Initializers
 	init() {
 		super.init(frame: .zero)
-
-		self.setupMainViewLayout(main: tableView)
-		self.backgroundColor = .white
+		self.setupAppearance()
+		self.setupLayout()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -39,16 +33,36 @@ final class NotesTableView: UIView {
 	}
 }
 
+extension NoteTableView: ITableView {
+	// MARK: - Public Methods
+	func reloadData() {
+		self.tableView.reloadData()
+	}
+
+}
+
 // MARK: - Appearances
-private extension NotesTableView {
+private extension NoteTableView {
+	func setupAppearance() {
+		self.setupViewAppearance()
+	}
+
+	func setupViewAppearance() {
+		self.backgroundColor = .white
+	}
+
 	func setupTableAppearance() -> UITableView {
 		let table = UITableView(frame: .zero, style: .plain)
-
 		table.register(NoteViewCell.self, forCellReuseIdentifier: NoteViewCell.reuseIdentifier)
-		table.delegate = self.tableViewDelegate
-		table.dataSource = self.dataSource
-
 		return table
+	}
+
+}
+
+// MARK: - Layout
+private extension NoteTableView {
+	func setupLayout() {
+		self.setupMainViewLayout(main: self.tableView)
 	}
 
 	func setupMainViewLayout(main view: UIView) {
