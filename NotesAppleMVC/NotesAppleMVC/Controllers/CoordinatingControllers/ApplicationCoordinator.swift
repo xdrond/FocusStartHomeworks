@@ -11,7 +11,7 @@ import UIKit
 final class ApplicationCoordinator {
 	
 	// MARK: - Private Properties
-	private let modelController: IModelController = ModelController()
+	private let modelController: IModelController = ModelController.shared
 	private let window: UIWindow
 	private let rootViewController = NavigationController()
 	private let noteTableCoordinator: NoteTableCoordinator

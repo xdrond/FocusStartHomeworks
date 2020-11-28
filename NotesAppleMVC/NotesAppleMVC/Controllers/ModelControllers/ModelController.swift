@@ -11,6 +11,9 @@ import UIKit
 // Provides note data from JSON
 final class ModelController {
 
+	// MARK: - Public Properties
+	static var shared: ModelController = { return ModelController() }()
+
 	// MARK: - Public Methods
 	func attach(_ observer: IObserver) {
 		self.observers.append(observer)
@@ -31,12 +34,12 @@ final class ModelController {
 	private lazy var observers: [IObserver] = []
 
 	// MARK: - Private Methods
-	func notify() {
+	private func notify() {
 		self.observers.forEach { $0.update() }
 	}
 
 	// MARK: - Initializers
-	init() {
+	private init() {
 		// Parse json and store it's data
 		guard let data = try? Data(contentsOf: ModelController.noteURL) else {
 			assertionFailure("Failed file reading.")

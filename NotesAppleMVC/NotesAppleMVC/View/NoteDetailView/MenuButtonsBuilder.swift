@@ -11,7 +11,7 @@ import UIKit
 struct MenuButtonsBuilder {
 	func build(colors: [AssetsColor], commonSelector: Selector) -> UIStackView{
 		let stack = UIStackView()
-//		let UIColors = colors.map { UIColor.appColor($0) }
+
 		colors.forEach {
 			let button = buildColouredButton(color: $0, selector: commonSelector)
 			stack.addArrangedSubview(button)
