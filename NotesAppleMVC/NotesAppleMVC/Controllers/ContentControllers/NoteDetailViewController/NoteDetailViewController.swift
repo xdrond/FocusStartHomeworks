@@ -41,9 +41,14 @@ final class NoteDetailViewController: UIViewController {
 		self.navigationItem.title = note.text
 		self.navigationItem.largeTitleDisplayMode = .never
 
-		self.detailView?.noteColor = note.backgroundUIColor
-		self.detailView?.text = note.text
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+		self.detailView?.noteUIColor = note.backgroundUIColor
+		self.detailView?.text = note.text
+	}
 
 }
 
@@ -51,7 +56,7 @@ extension NoteDetailViewController: ISaveButtonPressedDelegate {
 	func saveButtonPressed() {
 		guard let text = self.detailView?.text else { return }
 		self.note.text = text
-		self.note.backgroundUIColor = self.detailView?.noteColor
+		self.note.backgroundColor = self.detailView?.noteColor ?? "yellow"
 		self.delegate?.saveNote(note: self.note)
 	}
 

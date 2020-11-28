@@ -44,3 +44,9 @@ extension NoteTableViewController: UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
+
+extension NoteTableViewController: IReloadTableViewDelegate {
+	func reloadData() {
+		self.tableView.reloadData()
+	}
+}

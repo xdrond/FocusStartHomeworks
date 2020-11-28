@@ -7,6 +7,9 @@
 //
 
 protocol IModelController {
+	func attach(_ observer: IObserver)
+	func detach(_ observer: IObserver)
+
 	func getAllNotes() -> [Note]
 	func saveNote(note: Note)
 }

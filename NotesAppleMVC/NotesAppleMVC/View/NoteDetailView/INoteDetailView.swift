@@ -10,5 +10,6 @@ import UIKit
 protocol INoteDetailView {
 	
 	var text: String { get set }
-	var noteColor: UIColor? { get set }
+	var noteUIColor: UIColor? { get set }
+	var noteColor: String? { get }
 }

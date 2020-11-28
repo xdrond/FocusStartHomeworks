@@ -15,19 +15,19 @@ final class NoteDetailView: UIView {
 
 	private lazy var textView: UITextView = UITextView()
 	private lazy var saveButton: UIButton = UIButton()
-	private lazy var changeColorButtons: UIStackView = MenuButtonsBuilder().build(colors: AssetsColor.allCases,
-																				  commonSelector: #selector(changeColorPressed(sender: )) )
+	private lazy var changeColorButtons: UIStackView = self.createButtons()
 
 	private var color: UIColor? { didSet { self.updateBackgroundColors(color: self.color) } }
 	private var noteText: String { didSet { self.textView.text = self.noteText } }
 
 	// MARK: - Private Methods
 	@objc private func saveButtonPressed() {
-		self.text = self.textView.text
+		self.noteText = self.textView.text
 		self.delegate?.saveButtonPressed()
 	}
 
 	@objc private func changeColorPressed(sender: UIButton) {
+		self.accessibilityIdentifier = sender.accessibilityIdentifier
 		self.color = sender.backgroundColor
 	}
 
@@ -53,19 +53,39 @@ final class NoteDetailView: UIView {
 }
 
 extension NoteDetailView: INoteDetailView {
+
 	var text: String {
 		get{ return self.noteText }
 		set{ self.noteText = newValue }
 	}
 
-	var noteColor: UIColor? {
+	var noteUIColor: UIColor? {
 		get { return self.color}
 		set { self.color = newValue }
 	}
 
+	var noteColor: String? {
+		get { return self.accessibilityIdentifier }
+		set { self.accessibilityIdentifier = newValue }
+	}
 }
 
-// MARK: - TODO: Move '48' to Constant place.
+
+private extension NoteDetailView {
+	func createButtons() -> UIStackView {
+		let builder = MenuButtonsBuilder()
+		let stack = builder.build(colors: AssetsColor.allCases,
+								  commonSelector: #selector(changeColorPressed(sender: )) )
+		return stack
+	}
+
+	func updateBackgroundColors(color: UIColor?) {
+		self.backgroundColor = color
+		self.textView.backgroundColor = color
+		self.changeColorButtons.backgroundColor = color
+	}
+
+}
 
 // MARK: - Layout
 private extension NoteDetailView {
@@ -115,6 +135,7 @@ private extension NoteDetailView {
 	
 }
 
+// MARK: - TODO: Move '48' and other numbers to Constant struct/enum.
 // MARK: - Appearances
 private extension NoteDetailView {
 	func setupAppearance() {
@@ -122,12 +143,6 @@ private extension NoteDetailView {
 		self.setupSaveButtonAppearance(view: self.saveButton)
 		self.setupChangeColorsButtonsAppearance(view: self.changeColorButtons)
 		self.setupTextViewAppearance(view: self.textView)
-	}
-
-	func updateBackgroundColors(color: UIColor?) {
-		self.backgroundColor = color
-		self.textView.backgroundColor = color
-		self.changeColorButtons.backgroundColor = color
 	}
 
 	func setupSaveButtonAppearance(view: UIButton) {

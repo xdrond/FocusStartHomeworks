@@ -22,21 +22,29 @@ final class NoteTableView: UIView {
 	private lazy var tableView: UITableView = self.setupTableAppearance()
 
 	// MARK: - Initializers
-	init() {
-		super.init(frame: .zero)
-		self.setupAppearance()
-		self.setupLayout()
-	}
+//	init() {
+//		super.init(frame: .zero)
+//	}
+//
+//	required init?(coder aDecoder: NSCoder) {
+//		fatalError("init(coder:) has not been implemented")
+//	}
 
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+	// MARK: - Lifecycle
+	override func layoutSubviews() {
+		super.layoutSubviews()
+
+		self.setupLayout()
+		self.setupAppearance()
 	}
 }
 
 extension NoteTableView: ITableView {
 	// MARK: - Public Methods
 	func reloadData() {
-		self.tableView.reloadData()
+		DispatchQueue.main.async{
+			self.tableView.reloadData()
+		}
 	}
 
 }

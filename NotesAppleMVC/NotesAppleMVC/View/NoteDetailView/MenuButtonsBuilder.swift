@@ -28,7 +28,7 @@ struct MenuButtonsBuilder {
 		button.addTarget(self,
 						 action: selector,
 						 for: .touchUpInside)
-		button.accessibilityIdentifier = color.rawValue + "button"
+		button.accessibilityIdentifier = color.rawValue
 		button.backgroundColor = UIColor.appColor(color)
 		button.layer.cornerRadius = 48 / 2
 		button.layer.borderWidth = 1

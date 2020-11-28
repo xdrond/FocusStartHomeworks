@@ -16,6 +16,8 @@
 		E21E6306256D598C00B9CCED /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21E6305256D598C00B9CCED /* UIColor.swift */; };
 		E23A73A3257005CF00C1F7DD /* ISaveNoteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A73A2257005CF00C1F7DD /* ISaveNoteDelegate.swift */; };
 		E23A73A62570080700C1F7DD /* ISaveButtonPressedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A73A52570080700C1F7DD /* ISaveButtonPressedDelegate.swift */; };
+		E23A73A925714DA800C1F7DD /* IObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A73A825714DA800C1F7DD /* IObserver.swift */; };
+		E23A73AB257152E300C1F7DD /* IReloadTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A73AA257152E300C1F7DD /* IReloadTableViewDelegate.swift */; };
 		E245A2B1256AD1A5006AB972 /* NoteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E245A2B0256AD1A5006AB972 /* NoteViewCell.swift */; };
 		E2553CE825640AC5005EA08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2553CE725640AC5005EA08C /* AppDelegate.swift */; };
 		E2553CF525640AC8005EA08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2553CF325640AC8005EA08C /* LaunchScreen.storyboard */; };
@@ -46,6 +48,8 @@
 		E21E6305256D598C00B9CCED /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E23A73A2257005CF00C1F7DD /* ISaveNoteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISaveNoteDelegate.swift; sourceTree = "<group>"; };
 		E23A73A52570080700C1F7DD /* ISaveButtonPressedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISaveButtonPressedDelegate.swift; sourceTree = "<group>"; };
+		E23A73A825714DA800C1F7DD /* IObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IObserver.swift; sourceTree = "<group>"; };
+		E23A73AA257152E300C1F7DD /* IReloadTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IReloadTableViewDelegate.swift; sourceTree = "<group>"; };
 		E245A2B0256AD1A5006AB972 /* NoteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewCell.swift; sourceTree = "<group>"; };
 		E2553CE425640AC5005EA08C /* NotesAppleMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesAppleMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2553CE725640AC5005EA08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,14 @@
 			path = NoteDetailViewController;
 			sourceTree = "<group>";
 		};
+		E23A73A7257141FD00C1F7DD /* IObserver */ = {
+			isa = PBXGroup;
+			children = (
+				E23A73A825714DA800C1F7DD /* IObserver.swift */,
+			);
+			path = IObserver;
+			sourceTree = "<group>";
+		};
 		E2553CDB25640AC5005EA08C = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +226,7 @@
 		E2AF4C0D2567D39A000FD114 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E23A73A7257141FD00C1F7DD /* IObserver */,
 				E2AF4C212567FAB8000FD114 /* IModelController.swift */,
 				E2AF4C0A2567D1F4000FD114 /* ModelController.swift */,
 				E21E62FE256D3A8000B9CCED /* INote.swift */,
@@ -252,6 +265,7 @@
 		E2AF4C2B25680C94000FD114 /* NoteTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E23A73AA257152E300C1F7DD /* IReloadTableViewDelegate.swift */,
 				E2AF4C2C25680C94000FD114 /* NoteTableViewController.swift */,
 				E21E62F3256D228400B9CCED /* NoteDataSource.swift */,
 			);
@@ -333,6 +347,7 @@
 				E2AF4C0B2567D1F4000FD114 /* ModelController.swift in Sources */,
 				E21E6306256D598C00B9CCED /* UIColor.swift in Sources */,
 				E2AF4C1B2567E633000FD114 /* NavigationController.swift in Sources */,
+				E23A73A925714DA800C1F7DD /* IObserver.swift in Sources */,
 				E2AF4C132567DF7A000FD114 /* NoteDetailView.swift in Sources */,
 				E2AF4C2625680063000FD114 /* NoteDetailCoordinator.swift in Sources */,
 				E2AF4C202567EBA8000FD114 /* ApplicationCoordinator.swift in Sources */,
@@ -353,6 +368,7 @@
 				E21E6303256D54E700B9CCED /* MenuButtonsBuilder.swift in Sources */,
 				E2AF4C082567D0FE000FD114 /* Note.swift in Sources */,
 				E23A73A62570080700C1F7DD /* ISaveButtonPressedDelegate.swift in Sources */,
+				E23A73AB257152E300C1F7DD /* IReloadTableViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

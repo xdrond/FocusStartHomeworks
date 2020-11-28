@@ -20,10 +20,12 @@ final class NoteTableCoordinator {
 	init(presenter: NavigationController, modelController: IModelController) {
 		self.presenter = presenter
 		self.modelController = modelController
+		self.modelController.attach(self)
 	}
 
 }
 
+// MARK: - ICoordinator
 extension NoteTableCoordinator: ICoordinator {
 	func start() {
 		let noteTableViewController = NoteTableViewController()
@@ -46,4 +48,13 @@ extension NoteTableCoordinator: ITableViewControllerDelegate {
 		noteDetailCoordinator.start()
 		self.noteDetailCoordinator = noteDetailCoordinator
 	}
+}
+
+// MARK: - IObserver
+extension NoteTableCoordinator: IObserver {
+	func update() {
+		self.noteTableViewController?.notes = self.modelController.getAllNotes()
+		self.noteTableViewController?.reloadData()
+	}
+
 }
