@@ -14,9 +14,7 @@ final class NoteTableViewController: UIViewController {
 	weak var delegate: ITableViewControllerDelegate?
 
 	var notes: [Note] = [] {
-		didSet {
-			self.tableView.reloadData()
-		}
+		didSet { self.dataSource.notes = self.notes }
 	}
 
 	// MARK: - Private Properties

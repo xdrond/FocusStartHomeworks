@@ -13,13 +13,15 @@ import UIKit
 
 final class NoteDataSource: NSObject, UITableViewDataSource {
 
+	// MARK: - Public Properties
+	var notes: [Note] = []
+
 	// MARK: - Private Properties
-	private let modelController: IModelController = ModelController()
 	private let errorText = "Expected \(NoteViewCell.self) type for reuseIdentifier \(NoteViewCell.reuseIdentifier)."
 
 	// MARK: - Public Methods
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.modelController.getAllNotes().count
+		return self.notes.count
 	}
 
 
@@ -30,8 +32,8 @@ final class NoteDataSource: NSObject, UITableViewDataSource {
 														return NoteViewCell()
 		}
 
-		let note = self.modelController.getAllNotes()[indexPath.row]
-
+		let note = self.notes[indexPath.row]
+		
 		cell.textLabel?.text = note.text
 		cell.backgroundColor = note.backgroundUIColor
 
