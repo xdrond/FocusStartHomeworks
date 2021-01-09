@@ -97,11 +97,13 @@ private extension FirstView {
 		self.thirdLabel.numberOfLines = 2
 		self.thirdLabel.textColor = UIColor.appColor(.fontColor)
 		self.thirdLabel.backgroundColor = UIColor.appColor(.backgroundColor)
-		guard self.thirdLabel.font = UIFont(name: "Helvetica",
-											size: AppearanceConstants.thirdLabelFontSize.rawValue) else {
-			assertionFailure("Font not found!")
-			return
-		}
+
+        guard let font = UIFont(name: "Helvetica",
+                                size: AppearanceConstants.thirdLabelFontSize.rawValue) else {
+            assertionFailure("Font not found!")
+            return
+        }
+        self.thirdLabel.font = font
 	}
 
 	func setupRoundButtonAppearance() {
