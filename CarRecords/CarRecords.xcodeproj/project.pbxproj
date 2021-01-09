@@ -31,7 +31,6 @@
 		E2846A5925399D8600D9DD12 /* CarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		E2846A5B253AA93900D9DD12 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		E2846A5D253AABFF00D9DD12 /* ConsoleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleInterface.swift; sourceTree = "<group>"; };
-		E2BBD7C0255164B50093536C /* Task_2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Task_2.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +47,7 @@
 		E2846A462539948F00D9DD12 = {
 			isa = PBXGroup;
 			children = (
-				E2BBD7C0255164B50093536C /* Task_2.pdf */,
-				E2846A512539948F00D9DD12 /* Car Records */,
+				E2846A512539948F00D9DD12 /* CarRecords */,
 				E2846A502539948F00D9DD12 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,7 +60,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2846A512539948F00D9DD12 /* Car Records */ = {
+		E2846A512539948F00D9DD12 /* CarRecords */ = {
 			isa = PBXGroup;
 			children = (
 				E2846A522539948F00D9DD12 /* main.swift */,
@@ -70,7 +68,7 @@
 				E2846A5B253AA93900D9DD12 /* ModelController.swift */,
 				E2846A5D253AABFF00D9DD12 /* ConsoleInterface.swift */,
 			);
-			path = "Car Records";
+			path = CarRecords;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

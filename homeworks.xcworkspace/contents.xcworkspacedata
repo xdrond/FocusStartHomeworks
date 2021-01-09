@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:CarRecords"
+      name = "CarRecords">
+      <FileRef
+         location = "group:CarRecords.xcodeproj">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:NotesAppleMVC/NotesAppleMVC.xcodeproj">
    </FileRef>
@@ -9,8 +16,5 @@
    </FileRef>
    <FileRef
       location = "group:UITabBarCodeLayout/UITabBarCodeLayout.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/xdrond/Documents/Swift edu/FocusStartHomeworks/Car Records/CarRecords.xcodeproj">
    </FileRef>
 </Workspace>
