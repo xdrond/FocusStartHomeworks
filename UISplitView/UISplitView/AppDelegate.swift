@@ -33,9 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let splitViewController =  UISplitViewController()
 		splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
 
-		self.window = UIWindow(frame: UIScreen.main.bounds)
-		self.window!.rootViewController = splitViewController
-		self.window!.makeKeyAndVisible()
+        guard self.window != nil else { return }
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+		self.window.rootViewController = splitViewController
+		self.window.makeKeyAndVisible()
 	}
 
 }

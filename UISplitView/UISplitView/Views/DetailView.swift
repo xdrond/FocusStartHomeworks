@@ -78,6 +78,11 @@ private extension DetailView {
 // MARK: - Layout
 private extension DetailView {
 
+    enum Layout {
+        static let commonIndent: CGFloat = 16
+        static let contentWidthRatio: CGFloat = 0.9
+    }
+
 	func setupViewsLayout() {
 		self.setupScrollViewLayout()
 		self.setupStoryTextLayout()
@@ -104,13 +109,12 @@ private extension DetailView {
 		let safeArea = self.safeAreaLayoutGuide
 		self.constraintsCompactRegular.append(contentsOf: [
 			self.storyText.topAnchor.constraint(equalTo: self.scrollView.topAnchor,
-												constant: 16),
+                                                constant: Layout.commonIndent),
 			self.storyText.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
 			self.storyText.widthAnchor.constraint(equalTo: safeArea.widthAnchor,
-												  multiplier: 0.9),
-//			self.storyText.heightAnchor.constraint(equalToConstant: self.storyText.he),
+                                                  multiplier: Layout.contentWidthRatio),
 			self.storyText.bottomAnchor.constraint(equalTo: firstContainerImage.topAnchor,
-												   constant: -16)
+                                                   constant: -Layout.commonIndent)
 
 			])
 	}
@@ -121,11 +125,11 @@ private extension DetailView {
 		let safeArea = self.safeAreaLayoutGuide
 		self.constraintsCompactRegular.append(contentsOf: [
 			self.firstContainerImage.topAnchor.constraint(equalTo: self.storyText.bottomAnchor,
-														  constant: 16),
+                                                          constant: Layout.commonIndent),
 			self.firstContainerImage.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
 			self.firstContainerImage.widthAnchor.constraint(equalTo: safeArea.widthAnchor,
-												   multiplier: 0.9),
-			self.firstContainerImage.heightAnchor.constraint(equalTo: self.firstContainerImage.widthAnchor, multiplier: 1)
+                                                            multiplier: Layout.contentWidthRatio),
+			self.firstContainerImage.heightAnchor.constraint(equalTo: self.firstContainerImage.widthAnchor)
 			])
 	}
 
@@ -135,13 +139,13 @@ private extension DetailView {
 		let safeArea = self.safeAreaLayoutGuide
 		self.constraintsCompactRegular.append(contentsOf: [
 			self.secondContainerImage.topAnchor.constraint(equalTo: self.firstContainerImage.bottomAnchor,
-														   constant: 16),
+                                                           constant: Layout.commonIndent),
 			self.secondContainerImage.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
 			self.secondContainerImage.widthAnchor.constraint(equalTo: safeArea.widthAnchor,
-													multiplier: 0.9),
+                                                             multiplier: Layout.contentWidthRatio),
 			self.secondContainerImage.heightAnchor.constraint(equalTo: self.secondContainerImage.widthAnchor, multiplier: 1),
 			self.secondContainerImage.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,
-															  constant: -16)
+                                                              constant: -Layout.commonIndent)
 			])
 	}
 
