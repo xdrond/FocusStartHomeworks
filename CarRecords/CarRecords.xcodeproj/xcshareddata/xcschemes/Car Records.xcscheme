@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E2846A4E2539948F00D9DD12"
-               BuildableName = "Car Records"
-               BlueprintName = "Car Records"
-               ReferencedContainer = "container:Car Records.xcodeproj">
+               BuildableName = "CarRecords"
+               BlueprintName = "CarRecords"
+               ReferencedContainer = "container:CarRecords.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E2846A4E2539948F00D9DD12"
-            BuildableName = "Car Records"
-            BlueprintName = "Car Records"
-            ReferencedContainer = "container:Car Records.xcodeproj">
+            BuildableName = "CarRecords"
+            BlueprintName = "CarRecords"
+            ReferencedContainer = "container:CarRecords.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E2846A4E2539948F00D9DD12"
-            BuildableName = "Car Records"
-            BlueprintName = "Car Records"
-            ReferencedContainer = "container:Car Records.xcodeproj">
+            BuildableName = "CarRecords"
+            BlueprintName = "CarRecords"
+            ReferencedContainer = "container:CarRecords.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E2846A4E2539948F00D9DD12"
-            BuildableName = "Car Records"
-            BlueprintName = "Car Records"
-            ReferencedContainer = "container:Car Records.xcodeproj">
+            BuildableName = "CarRecords"
+            BlueprintName = "CarRecords"
+            ReferencedContainer = "container:CarRecords.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
