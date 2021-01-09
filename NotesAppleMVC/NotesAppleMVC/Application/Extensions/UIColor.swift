@@ -17,7 +17,7 @@ enum AssetsColor: String, CaseIterable {
 extension UIColor {
 	static func appColor(_ name: AssetsColor) -> UIColor? {
 		guard let color = UIColor(named: name.rawValue) else {
-			assertionFailure();
+			assertionFailure("Cannot find color in assets with the name \(name.rawValue)!")
 			return nil
 		}
 		return color

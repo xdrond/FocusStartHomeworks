@@ -56,7 +56,7 @@ extension NoteDetailViewController: ISaveButtonPressedDelegate {
 	func saveButtonPressed() {
 		guard let text = self.detailView?.text else { return }
 		self.note.text = text
-		self.note.backgroundColor = self.detailView?.noteColor ?? "yellow"
+        self.note.backgroundColor = AssetsColor.yellow
 		self.delegate?.saveNote(note: self.note)
 	}
 
