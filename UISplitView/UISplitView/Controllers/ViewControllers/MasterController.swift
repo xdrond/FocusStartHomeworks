@@ -58,7 +58,6 @@ extension MasterController: UITableViewDelegate {
 
 		self.splitViewController?.showDetailViewController(controller, sender: nil)
 
-//		self.showDetailViewController(UINavigationController(rootViewController: controller), sender: nil)
 	}
 }
 
