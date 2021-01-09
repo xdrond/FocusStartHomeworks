@@ -2,15 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:UISplitView/UISplitView.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:UITabBarCodeLayout/UITabBarCodeLayout.xcodeproj">
+      location = "group:CarRecords/CarRecords.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:ThreadSafeArray/ThreadSafeArray.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:CarRecords/CarRecords.xcodeproj">
+      location = "group:NotesAppleMVC/NotesAppleMVC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:UISplitView/UISplitView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:UITabBarCodeLayout/UITabBarCodeLayout.xcodeproj">
    </FileRef>
 </Workspace>
